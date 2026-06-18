@@ -18,7 +18,7 @@ export function Header() {
       {/* Announcement bar */}
       <div className="bg-brand-700 text-white">
         <div className="container flex h-9 items-center justify-center gap-x-4 gap-y-0 overflow-hidden text-center text-xs font-medium">
-          <span className="hidden sm:inline">Welcome to Wholesale101.com!</span>
+          <span className="hidden sm:inline">Welcome to LiquidationsPalletDeals.com!</span>
           <Link href="/register" className="underline-offset-2 hover:underline">
             Register now — create a FREE account
           </Link>
@@ -49,7 +49,7 @@ export function Header() {
       </div>
 
       <div className="container flex h-16 items-center justify-between gap-4">
-        <Logo priority />
+        <Logo />
 
         <div className="hidden max-w-md flex-1 md:block">
           <label className="relative block">

@@ -132,14 +132,14 @@ export const dealTiers = [
     slug: "80-off",
     blurb: "Strong-margin lots for resellers building inventory at scale.",
     minDiscount: 80,
-    accent: "from-brand-500 to-brand-700",
+    accent: "from-brand-600 to-brand-800",
   },
   {
     name: "Deals Over 90% Off",
     slug: "90-off",
     blurb: "Deeper discounts on overstock and shelf-pulls — limited quantities.",
     minDiscount: 90,
-    accent: "from-accent-500 to-accent-700",
+    accent: "from-brand-800 to-brand-950",
   },
   {
     name: "Deals Over 95% Off",

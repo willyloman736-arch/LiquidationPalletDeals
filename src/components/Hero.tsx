@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-ink-900 text-white">
       <Image
         src="/images/marketing/hero-aerial.webp"
-        alt="Aerial view of the Wholesale101.com liquidation warehouse and loading docks in Beacon Falls, Connecticut"
+        alt="Aerial view of the LiquidationsPalletDeals.com liquidation warehouse and loading docks in Beacon Falls, Connecticut"
         fill
         priority
         sizes="100vw"
@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div className="container relative py-20 lg:py-28">
         <div className="max-w-2xl">
-          <span className="badge bg-accent-500 text-white">
+          <span className="badge bg-accent-500 text-brand-950">
             <Icon name="bolt" className="h-3.5 w-3.5" /> Everything 82% off MSRP or more
           </span>
           <h1 className="mt-5 text-balance text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">

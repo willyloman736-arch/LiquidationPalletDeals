@@ -1,4 +1,4 @@
-# Wholesale101 — Next.js 15 Site
+# LiquidationsPalletDeals.com — Next.js 15 Site
 
 A full Next.js 15 + TypeScript + Tailwind CSS implementation of the wholesale101.com site structure: a liquidation-pallet marketplace with category browsing, deal tiers, manifest-aware pallet detail pages, and standard info pages.
 
@@ -129,4 +129,4 @@ Drop in a Server Action, a route handler, or a third-party form provider (Resend
 
 ## License
 
-Proprietary — © Wholesale101.
+Proprietary — © LiquidationsPalletDeals.com.

@@ -7,7 +7,7 @@ import { faqs } from "@/data/faq";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Buying, packing, shipping, quality grades, and returns — answers to common questions about Wholesale101.com liquidation pallets.",
+    "Buying, packing, shipping, quality grades, and returns — answers to common questions about LiquidationsPalletDeals.com liquidation pallets.",
 };
 
 export default function FAQPage() {

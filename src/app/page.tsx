@@ -130,7 +130,7 @@ export default function HomePage() {
             <div className="relative aspect-[4/3] w-full lg:aspect-auto lg:h-full lg:min-h-[320px]">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="Wholesale101.com warehouse exterior in Beacon Falls, Connecticut"
+                alt="LiquidationsPalletDeals.com warehouse exterior in Beacon Falls, Connecticut"
                 fill
                 sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover"
@@ -177,7 +177,7 @@ function CosmeticsRow({ pallet }: { pallet: PalletWithCategoryName }) {
           sizes="(min-width:640px) 25vw, 40vw"
           className="object-cover transition group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 badge bg-accent-500 text-white">
+        <span className="absolute left-3 top-3 badge bg-accent-500 text-brand-950">
           {pallet.discountPct}% off
         </span>
       </div>

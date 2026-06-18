@@ -61,14 +61,14 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <a
                   href={site.social.facebook}
-                  aria-label="Wholesale101 on Facebook"
+                  aria-label="LiquidationsPalletDeals on Facebook"
                   className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
                 >
                   <Icon name="facebook" />
                 </a>
                 <a
                   href={site.social.tiktok}
-                  aria-label="Wholesale101 on TikTok"
+                  aria-label="LiquidationsPalletDeals on TikTok"
                   className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
                 >
                   <Icon name="tiktok" />

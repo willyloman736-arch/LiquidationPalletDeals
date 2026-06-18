@@ -24,7 +24,9 @@ export function DealsBanner() {
               <p className="text-xs font-semibold uppercase tracking-wider text-white/80">
                 {d.name}
               </p>
-              <p className="mt-2 text-4xl font-extrabold tracking-tight">{d.minDiscount}%+ off</p>
+              <p className="mt-2 text-4xl font-extrabold tracking-tight text-accent-400">
+                {d.minDiscount}%+ off
+              </p>
               <p className="mt-3 max-w-xs text-sm text-white/85">{d.blurb}</p>
               <span className="mt-6 inline-flex items-center gap-1 rounded-lg bg-white/15 px-3 py-1.5 text-sm font-semibold backdrop-blur">
                 Shop tier <Icon name="arrowRight" className="h-3.5 w-3.5" />

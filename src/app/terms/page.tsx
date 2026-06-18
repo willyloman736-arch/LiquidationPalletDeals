@@ -5,7 +5,7 @@ import { LegalContent, type LegalSection } from "@/components/LegalContent";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "The terms and conditions that govern purchases and use of Wholesale101.com.",
+  description: "The terms and conditions that govern purchases and use of LiquidationsPalletDeals.com.",
 };
 
 export default function TermsPage() {

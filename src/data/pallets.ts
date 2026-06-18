@@ -4,7 +4,7 @@ import palletsData from "./pallets.json";
 export type ManifestStatus = "fully" | "partially" | "unmanifested";
 export type Condition = "new" | "mos" | "first-quality" | "shelf-pull" | "customer-return";
 
-/** Raw lot/item data as extracted from the live wholesale101.com catalog. */
+/** Raw lot/item data as extracted from the live liquidationspalletdeals.com catalog. */
 type RawPallet = {
   sku: string | null;
   handle: string;

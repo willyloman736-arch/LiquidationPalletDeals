@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Email customer service at info@wholesale101.com or use the contact form. Business hours 7:00am–3:30pm ET, Monday–Friday.",
+    "Email customer service at info@liquidationspalletdeals.com or use the contact form. Business hours 7:00am–3:30pm ET, Monday–Friday.",
 };
 
 export default function ContactPage() {

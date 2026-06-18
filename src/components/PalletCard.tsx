@@ -30,7 +30,7 @@ export function PalletCard({ pallet }: { pallet: PalletWithCategoryName }) {
             Out of stock
           </span>
         ) : pallet.discountPct > 0 ? (
-          <span className="absolute right-3 top-3 badge bg-accent-500 text-white">
+          <span className="absolute right-3 top-3 badge bg-accent-500 text-brand-950">
             {pallet.discountPct}% off
           </span>
         ) : null}

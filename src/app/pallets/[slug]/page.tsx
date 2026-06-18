@@ -104,7 +104,7 @@ export default async function PalletPage({
                     Out of stock
                   </span>
                 ) : pallet.discountPct > 0 ? (
-                  <span className="absolute left-4 top-4 badge bg-accent-500 text-white">
+                  <span className="absolute left-4 top-4 badge bg-accent-500 text-brand-950">
                     {pallet.discountPct}% off original retail
                   </span>
                 ) : null}

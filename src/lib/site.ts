@@ -1,11 +1,11 @@
 export const site = {
-  name: "Wholesale101",
-  legalName: "Wholesale101.com",
+  name: "LiquidationsPalletDeals",
+  legalName: "LiquidationsPalletDeals.com",
   tagline: "Wholesale liquidation pallets — 82% off MSRP or more",
   description:
     "Shop 100%-inspected liquidation pallets and truckloads from famous and specialty-store brands. New lots listed daily across apparel, electronics, furniture, general merchandise, health & beauty, and houseware — fully manifested, partially manifested, or unmanifested.",
-  url: "https://wholesale101.com",
-  email: "info@wholesale101.com",
+  url: "https://liquidationspalletdeals.com",
+  email: "info@liquidationspalletdeals.com",
   phone: "+1 (203) 463-3369",
   hours: "Monday–Friday, 7:00 am – 3:30 pm ET",
   address: {
@@ -15,6 +15,7 @@ export const site = {
     zip: "06403",
     country: "USA",
   },
+  // Existing social profiles (update handles once the rebranded accounts exist).
   social: {
     facebook: "https://www.facebook.com/wholesale101/",
     tiktok: "https://www.tiktok.com/@wholesale101.com?lang=en",
