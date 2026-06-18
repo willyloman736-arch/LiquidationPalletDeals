@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
-import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
 
@@ -30,14 +29,11 @@ export function Header() {
       {/* Announcement bar */}
       <div className="bg-brand-700 text-white">
         <div className="container flex h-9 items-center justify-center gap-x-4 gap-y-0 overflow-hidden text-center text-xs font-medium">
-          <span className="hidden sm:inline">Welcome to LiquidationsPalletDeals.com!</span>
-          <Link href="/register" className="underline-offset-2 hover:underline">
-            Register now — create a FREE account
-          </Link>
-          <span aria-hidden="true" className="hidden text-white/40 md:inline">
+          <span>Welcome to Liquidation Pallet Deals!</span>
+          <span aria-hidden="true" className="hidden text-white/40 sm:inline">
             •
           </span>
-          <Link href="/deals" className="hidden underline-offset-2 hover:underline md:inline">
+          <Link href="/deals" className="hidden underline-offset-2 hover:underline sm:inline">
             New pallets daily — explore new arrivals
           </Link>
         </div>
@@ -51,11 +47,8 @@ export function Header() {
             <span className="sm:hidden">Beacon Falls, CT</span>
           </div>
           <div className="flex items-center gap-4">
-            <a href={`mailto:${site.email}`} className="hover:text-white">
-              {site.email}
-            </a>
-            <span className="hidden lg:inline">Mon–Fri 7:00am–3:30pm ET</span>
-            <span className="hidden md:inline">English / Español</span>
+            <span className="hidden sm:inline">Mon–Fri 7:00am–3:30pm ET</span>
+            <span>English / Español</span>
           </div>
         </div>
       </div>
@@ -76,10 +69,6 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-1">
-          <Link href="/register" className="btn-ghost hidden sm:inline-flex">
-            <Icon name="user" className="h-4 w-4" />
-            <span>Account</span>
-          </Link>
           <Link href="/deals" className="btn-primary hidden sm:inline-flex">
             <Icon name="cart" className="h-4 w-4" />
             <span>Shop deals</span>
@@ -207,15 +196,6 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                 >
                   Mixed Pallets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/register"
-                  className="mt-2 block rounded-lg bg-brand-600 px-3 py-2.5 text-center text-sm font-semibold text-white"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Create free account
                 </Link>
               </li>
             </ul>

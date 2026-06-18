@@ -135,7 +135,7 @@ export default function HomePage() {
             <div className="relative aspect-[4/3] w-full lg:aspect-auto lg:h-full lg:min-h-[320px]">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="LiquidationsPalletDeals.com warehouse exterior in Beacon Falls, Connecticut"
+                alt="Liquidation Pallet Deals warehouse exterior in Beacon Falls, Connecticut"
                 fill
                 sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover"

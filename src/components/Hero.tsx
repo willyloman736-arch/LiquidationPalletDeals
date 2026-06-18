@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-ink-900 text-white">
       <Image
         src="/images/marketing/hero-aerial.webp"
-        alt="Aerial view of the LiquidationsPalletDeals.com liquidation warehouse and loading docks in Beacon Falls, Connecticut"
+        alt="Aerial view of the Liquidation Pallet Deals liquidation warehouse and loading docks in Beacon Falls, Connecticut"
         fill
         priority
         sizes="100vw"
@@ -41,10 +41,10 @@ export function Hero() {
               <Icon name="arrowRight" className="h-4 w-4" />
             </Link>
             <Link
-              href="/register"
+              href="/faq"
               className="btn bg-white/10 text-white ring-1 ring-inset ring-white/30 backdrop-blur hover:bg-white/20"
             >
-              Create a free account
+              How buying works
             </Link>
           </div>
           <dl

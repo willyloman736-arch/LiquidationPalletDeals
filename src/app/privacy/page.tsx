@@ -5,7 +5,7 @@ import { LegalContent, type LegalSection } from "@/components/LegalContent";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How LiquidationsPalletDeals.com collects, uses, shares, and protects your personal information.",
+  description: "How Liquidation Pallet Deals collects, uses, shares, and protects your personal information.",
 };
 
 export default function PrivacyPage() {

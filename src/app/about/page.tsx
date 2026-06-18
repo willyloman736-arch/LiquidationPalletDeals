@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "LiquidationsPalletDeals.com is backed by NEJ, Inc. and 33 years of B2B reverse-logistics experience. We inspect and grade every lot before it ships from Beacon Falls, Connecticut.",
+    "Liquidation Pallet Deals is backed by NEJ, Inc. and 33 years of B2B reverse-logistics experience. We inspect and grade every lot before it ships from Beacon Falls, Connecticut.",
 };
 
 const stats = [
@@ -20,11 +20,11 @@ const stats = [
 ];
 
 const story = [
-  "LiquidationsPalletDeals.com, a B2C e-commerce strategy, was originally established in 2011 as a division of NEJ, Inc. NEJ was founded in 1990 by Ed Mascolo, who became a national leader in purchasing excess inventories of end-of-season branded and specialty stores' apparel, footwear, accessories, and light home goods for resale to global off-price retailers. The synergies were in place for NEJ to grow a B2C platform, but the e-commerce model became a distraction to the core business.",
-  "LiquidationsPalletDeals.com transformed into a B2B business to service the ground swell of eBay and Amazon Marketplace resellers. LiquidationsPalletDeals.com was positioned to capitalize on the vast infrastructure NEJ built over its 20 years. Again, the division became an interference to the core business model and went dormant.",
-  "A new team was developed in 2024 to create a strong base combined with the muscle of NEJ's 33 years of infrastructure to restart the B2B platform. The straight-talk style of this team aligned well to reintroduce LiquidationsPalletDeals.com.",
-  "LiquidationsPalletDeals.com provides bulk inventory offerings of famous and specialty store branded clothing, accessories, general merchandise, light home goods, and more. Our prices and quality of goods will “wow!” you. Inventory offerings are typically at least 82% off MSRP. Pricing is listed by lot. Lots may be fully manifested, partially manifested, or unmanifested. Offerings are by the pallet as well as by the truckload. NEJ performs a quality control inspection on all goods offered. New inventories are received daily, providing the variety you need to be profitable.",
-  "Finding the right liquidation partner is crucial in growing a successful business. LiquidationsPalletDeals.com is your trouble-free pallet/bulk goods provider that will make a difference in your business!",
+  "Liquidation Pallet Deals, a B2C e-commerce strategy, was originally established in 2011 as a division of NEJ, Inc. NEJ was founded in 1990 by Ed Mascolo, who became a national leader in purchasing excess inventories of end-of-season branded and specialty stores' apparel, footwear, accessories, and light home goods for resale to global off-price retailers. The synergies were in place for NEJ to grow a B2C platform, but the e-commerce model became a distraction to the core business.",
+  "Liquidation Pallet Deals transformed into a B2B business to service the ground swell of eBay and Amazon Marketplace resellers. Liquidation Pallet Deals was positioned to capitalize on the vast infrastructure NEJ built over its 20 years. Again, the division became an interference to the core business model and went dormant.",
+  "A new team was developed in 2024 to create a strong base combined with the muscle of NEJ's 33 years of infrastructure to restart the B2B platform. The straight-talk style of this team aligned well to reintroduce Liquidation Pallet Deals.",
+  "Liquidation Pallet Deals provides bulk inventory offerings of famous and specialty store branded clothing, accessories, general merchandise, light home goods, and more. Our prices and quality of goods will “wow!” you. Inventory offerings are typically at least 82% off MSRP. Pricing is listed by lot. Lots may be fully manifested, partially manifested, or unmanifested. Offerings are by the pallet as well as by the truckload. NEJ performs a quality control inspection on all goods offered. New inventories are received daily, providing the variety you need to be profitable.",
+  "Finding the right liquidation partner is crucial in growing a successful business. Liquidation Pallet Deals is your trouble-free pallet/bulk goods provider that will make a difference in your business!",
 ];
 
 export default function AboutPage() {
@@ -33,7 +33,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="33 years of B2B reverse-logistics experience."
-        description="LiquidationsPalletDeals.com is backed by NEJ, Inc. — inspecting, grading, and shipping famous and specialty-store brand liquidation from Beacon Falls, Connecticut."
+        description="Liquidation Pallet Deals is backed by NEJ, Inc. — inspecting, grading, and shipping famous and specialty-store brand liquidation from Beacon Falls, Connecticut."
         breadcrumbs={[
           { href: "/", label: "Home" },
           { href: "/about", label: "About" },
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink-100">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="NEJ / LiquidationsPalletDeals.com warehouse exterior in Beacon Falls, Connecticut"
+                alt="NEJ / Liquidation Pallet Deals warehouse exterior in Beacon Falls, Connecticut"
                 fill
                 sizes="(min-width:1024px) 40vw, 100vw"
                 className="object-cover"

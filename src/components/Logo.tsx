@@ -4,7 +4,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="LiquidationsPalletDeals.com — home"
+      aria-label="Liquidation Pallet Deals — home"
       className={`group inline-flex items-center gap-2.5 ${className}`}
     >
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-800 shadow-card ring-1 ring-brand-950/30 transition group-hover:bg-brand-900">
@@ -22,10 +22,8 @@ export function Logo({ className = "" }: { className?: string }) {
           <path d="M12 11.4v9.4" strokeWidth="1.6" />
         </svg>
       </span>
-      <span className="font-display text-base font-extrabold leading-none tracking-tight text-brand-900 sm:text-lg">
-        Liquidations
-        <span className="text-accent-600">PalletDeals</span>
-        <span className="hidden font-semibold text-ink-400 sm:inline">.com</span>
+      <span className="font-display text-sm font-extrabold leading-none tracking-tight text-brand-900 sm:text-lg">
+        Liquidation Pallet <span className="text-accent-600">Deals</span>
       </span>
     </Link>
   );

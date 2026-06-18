@@ -8,7 +8,7 @@ import { Icon } from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Shipping",
   description:
-    "Pickup, LTL, and FTL shipping terms for LiquidationsPalletDeals.com — title transfer, costs, restrictions, tracking, and returns.",
+    "Pickup, LTL, and FTL shipping terms for Liquidation Pallet Deals — title transfer, costs, restrictions, tracking, and returns.",
 };
 
 const highlights = [

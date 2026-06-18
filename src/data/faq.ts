@@ -6,12 +6,12 @@ export type FAQ = {
 // Real FAQ content migrated from liquidationspalletdeals.com/pages/faq.
 export const faqs: FAQ[] = [
   {
-    question: "Why should I buy from LiquidationsPalletDeals.com?",
-    answer: `Our famous and specialty store offerings are 82% or more off MSRP. As a LiquidationsPalletDeals.com customer, you can capitalize on selling brand-name merchandise by providing customers with great value, allowing for faster growth and profitability for your business. Our quality control standards are the industry's highest, ensuring maximum recovery on your purchase from LiquidationsPalletDeals.com. Customers are invited and encouraged to visit our Beacon Falls, Connecticut warehouses to view merchandise before purchase.`,
+    question: "Why should I buy from Liquidation Pallet Deals?",
+    answer: `Our famous and specialty store offerings are 82% or more off MSRP. As a Liquidation Pallet Deals customer, you can capitalize on selling brand-name merchandise by providing customers with great value, allowing for faster growth and profitability for your business. Our quality control standards are the industry's highest, ensuring maximum recovery on your purchase from Liquidation Pallet Deals. Customers are invited and encouraged to visit our Beacon Falls, Connecticut warehouses to view merchandise before purchase.`,
   },
   {
-    question: "How do I make a purchase from LiquidationsPalletDeals.com?",
-    answer: `Browse our categories of goods updated daily. After adding items to your cart, you will be asked to create an account at checkout. Purchases can be executed with a valid credit card. LiquidationsPalletDeals.com orders ship within 3-5 business days. Live shipping rates are provided at checkout for LTL (less-than-truckload) shipments. If rates are not loading, clear your cache and reload your browser. If you wish to pick up your order yourself, select the pick up option at checkout and you will be contacted by support. All Gaylords are plastic wrapped to preserve goods. Additional fees may apply to commercial addresses that do not have receiving docks. For more information, view Shipping or Contact.`,
+    question: "How do I make a purchase from Liquidation Pallet Deals?",
+    answer: `Browse our categories of goods updated daily. After adding items to your cart, you can check out as a guest — no account is required. Purchases can be executed with a valid credit card. Liquidation Pallet Deals orders ship within 3-5 business days. Live shipping rates are provided at checkout for LTL (less-than-truckload) shipments. If rates are not loading, clear your cache and reload your browser. If you wish to pick up your order yourself, select the pick up option at checkout and you will be contacted by support. All Gaylords are plastic wrapped to preserve goods. Additional fees may apply to commercial addresses that do not have receiving docks. For more information, view Shipping or Contact.`,
   },
   {
     question: "Do I need a receiving dock to receive shipments?",
@@ -22,8 +22,8 @@ export const faqs: FAQ[] = [
     answer: `All merchandise is neatly folded and placed in Gaylords (on wood pallets) or in cartons. All Gaylords will be plastic wrapped to preserve goods. We pack as carefully as possible to maximize your recovery.`,
   },
   {
-    question: "Are there any merchandise guarantees or warrantees on LiquidationsPalletDeals.com offerings?",
-    answer: `Merchandise sold by LiquidationsPalletDeals.com is not covered under any guarantees or warrantees by the manufacturer, retailer, or reseller. You are purchasing goods "as is, where is." All sales are final.`,
+    question: "Are there any merchandise guarantees or warrantees on Liquidation Pallet Deals offerings?",
+    answer: `Merchandise sold by Liquidation Pallet Deals is not covered under any guarantees or warrantees by the manufacturer, retailer, or reseller. You are purchasing goods "as is, where is." All sales are final.`,
   },
   {
     question: "Can offerings be inspected before I purchase?",
@@ -31,7 +31,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Who is responsible for lost and/or damaged merchandise?",
-    answer: `Title to merchandise passes from LiquidationsPalletDeals.com to the customer when the merchandise leaves LiquidationsPalletDeals.com's docks in Beacon Falls, CT. The delivering carrier should be held responsible for any lost, damaged or broken packages. All claims should be directed to the delivering carrier. All LiquidationsPalletDeals.com packages are properly sealed in good condition cartons. Any orders picked up are the responsibility of the customer. Returns and refunds are not accepted.`,
+    answer: `Title to merchandise passes from Liquidation Pallet Deals to the customer when the merchandise leaves Liquidation Pallet Deals's docks in Beacon Falls, CT. The delivering carrier should be held responsible for any lost, damaged or broken packages. All claims should be directed to the delivering carrier. All Liquidation Pallet Deals packages are properly sealed in good condition cartons. Any orders picked up are the responsibility of the customer. Returns and refunds are not accepted.`,
   },
   {
     question: "What are Past Season Transfers (PSTs) and Marked Out of Stock (MOS) goods?",

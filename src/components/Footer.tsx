@@ -41,18 +41,6 @@ export function Footer() {
                 </span>
               </p>
               <p className="flex items-center gap-2">
-                <Icon name="mail" className="h-4 w-4 text-brand-700" />
-                <a href={`mailto:${site.email}`} className="hover:text-brand-700">
-                  {site.email}
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <Icon name="phone" className="h-4 w-4 text-brand-700" />
-                <a href={`tel:${site.phone.replace(/[^0-9+]/g, "")}`} className="hover:text-brand-700">
-                  {site.phone}
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
                 <Icon name="clock" className="h-4 w-4 text-brand-700" />
                 <span>{site.hours}</span>
               </p>
@@ -61,14 +49,14 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <a
                   href={site.social.facebook}
-                  aria-label="LiquidationsPalletDeals on Facebook"
+                  aria-label="Liquidation Pallet Deals on Facebook"
                   className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
                 >
                   <Icon name="facebook" />
                 </a>
                 <a
                   href={site.social.tiktok}
-                  aria-label="LiquidationsPalletDeals on TikTok"
+                  aria-label="Liquidation Pallet Deals on TikTok"
                   className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
                 >
                   <Icon name="tiktok" />

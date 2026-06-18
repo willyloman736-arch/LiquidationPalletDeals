@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Email customer service at info@liquidationspalletdeals.com or use the contact form. Business hours 7:00am–3:30pm ET, Monday–Friday.",
+    "Send us a message through the contact form. Business hours 7:00am–3:30pm ET, Monday–Friday.",
 };
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Get in touch."
-        description="Email customer service or send us a message and we'll do our best to follow up within the business day."
+        description="Send us a message and we'll do our best to follow up within the business day."
         breadcrumbs={[
           { href: "/", label: "Home" },
           { href: "/contact", label: "Contact" },
@@ -27,24 +27,6 @@ export default function ContactPage() {
           <div className="lg:col-span-5">
             <h2 className="text-lg font-bold text-ink-900">Customer service</h2>
             <ul className="mt-4 space-y-3 text-sm text-ink-700">
-              <li className="flex items-start gap-3">
-                <Icon name="mail" className="mt-0.5 h-5 w-5 text-brand-700" />
-                <div>
-                  <p className="font-semibold text-ink-900">Email</p>
-                  <a href={`mailto:${site.email}`} className="link">
-                    {site.email}
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Icon name="phone" className="mt-0.5 h-5 w-5 text-brand-700" />
-                <div>
-                  <p className="font-semibold text-ink-900">Phone</p>
-                  <a href={`tel:${site.phone.replace(/[^0-9+]/g, "")}`} className="link">
-                    {site.phone}
-                  </a>
-                </div>
-              </li>
               <li className="flex items-start gap-3">
                 <Icon name="clock" className="mt-0.5 h-5 w-5 text-brand-700" />
                 <div>
@@ -66,10 +48,10 @@ export default function ContactPage() {
             </ul>
 
             <div className="mt-8 rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
-              <h3 className="text-sm font-bold text-brand-900">Before you email</h3>
+              <h3 className="text-sm font-bold text-brand-900">Response times</h3>
               <p className="mt-1 text-sm text-brand-900/80">
-                If you send an email after business hours, we will respond as soon as possible on the next
-                business day. Please check your spam folder for replies — they may be hidden there!
+                If you reach out after business hours, we&rsquo;ll respond as soon as possible on the next
+                business day. Please check your spam folder for our reply — it may be hidden there.
               </p>
             </div>
           </div>

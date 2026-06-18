@@ -24,7 +24,7 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width
     <rect width="120" height="120" rx="26" fill="#0b1730"/>
     <g transform="translate(60,60) scale(2.2) translate(-32,-32)">${box}</g>
   </g>
-  <text x="96" y="360" font-family="sans-serif" font-size="60" font-weight="800" fill="#ffffff">Liquidations<tspan fill="#d3ad36">PalletDeals</tspan><tspan fill="#9fb1d2" font-weight="600" font-size="44">.com</tspan></text>
+  <text x="96" y="360" font-family="sans-serif" font-size="60" font-weight="800" fill="#ffffff">Liquidation Pallet <tspan fill="#d3ad36">Deals</tspan></text>
   <text x="98" y="416" font-family="sans-serif" font-size="30" font-weight="500" fill="#c4d2e7">Wholesale liquidation pallets &#8212; new arrivals daily</text>
   <g transform="translate(98,452)">
     <rect width="420" height="58" rx="29" fill="#c9a227"/>
