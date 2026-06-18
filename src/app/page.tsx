@@ -12,10 +12,10 @@ import { allPallets, getPalletsByCategory, type PalletWithCategoryName } from "@
 
 const FEATURED_SKUS = ["G51235", "ARP201", "G51322", "G51326", "G58138", "G51490"];
 
-export default function HomePage() {
-  const all = allPallets();
+export default async function HomePage() {
+  const all = await allPallets();
   const featured = all.filter((p) => p.sku !== null && FEATURED_SKUS.includes(p.sku));
-  const cosmetics = getPalletsByCategory("health-beauty").slice(0, 2);
+  const cosmetics = (await getPalletsByCategory("health-beauty")).slice(0, 2);
 
   return (
     <>

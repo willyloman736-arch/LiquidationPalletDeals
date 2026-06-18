@@ -6,10 +6,10 @@ import { PageHeader } from "./PageHeader";
 import { PalletGrid } from "./PalletGrid";
 import { Icon } from "./Icon";
 
-export function CategoryPageView({ slug }: { slug: string }) {
+export async function CategoryPageView({ slug }: { slug: string }) {
   const category = categories.find((c) => c.slug === slug);
   if (!category) return notFound();
-  const pallets = getPalletsByCategory(slug);
+  const pallets = await getPalletsByCategory(slug);
 
   return (
     <>

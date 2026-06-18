@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
-import { dealTiers } from "@/data/categories";
-import { getPalletsByDiscount } from "@/data/pallets";
+import { getDealTiers, getPalletsByDiscount } from "@/data/pallets";
 import { PageHeader } from "./PageHeader";
 import { PalletGrid } from "./PalletGrid";
 
-export function DealTierView({ slug }: { slug: string }) {
-  const tier = dealTiers.find((d) => d.slug === slug);
+export async function DealTierView({ slug }: { slug: string }) {
+  const tiers = await getDealTiers();
+  const tier = tiers.find((d) => d.slug === slug);
   if (!tier) return notFound();
-  const pallets = getPalletsByDiscount(tier.minDiscount);
+  const pallets = await getPalletsByDiscount(tier.minDiscount);
 
   return (
     <>

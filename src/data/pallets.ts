@@ -1,10 +1,12 @@
-import { categories } from "./categories";
+import { cache } from "react";
+import { categories, dealTiers as staticDealTiers } from "./categories";
 import palletsData from "./pallets.json";
+import { getPublicClient } from "@/lib/supabase";
 
 export type ManifestStatus = "fully" | "partially" | "unmanifested";
 export type Condition = "new" | "mos" | "first-quality" | "shelf-pull" | "customer-return";
 
-/** Raw lot/item data as extracted from the live liquidationspalletdeals.com catalog. */
+/** Raw lot/item data (from Supabase, or the static JSON fallback). */
 type RawPallet = {
   sku: string | null;
   handle: string;
@@ -14,13 +16,13 @@ type RawPallet = {
   condition: Condition;
   retailValueUsd: number;
   priceUsd: number;
+  salePriceUsd: number | null;
   units: number;
   costPerUnitUsd: number;
   availability: "in-stock" | "out-of-stock";
   images: string[];
+  featured: boolean;
 };
-
-const raw = palletsData as unknown as RawPallet[];
 
 export const manifestLabel: Record<ManifestStatus, string> = {
   fully: "Fully manifested",
@@ -53,10 +55,20 @@ export const conditionDescription: Record<Condition, string> = {
 
 const SHIPS_FROM = "Beacon Falls, CT";
 
+export type DealTier = {
+  slug: string;
+  name: string;
+  minDiscount: number;
+  blurb: string;
+  accent: string;
+};
+
 export type Pallet = RawPallet & {
   slug: string;
   categoryName: string;
   discountPct: number;
+  onSale: boolean;
+  listPriceUsd: number; // regular price, shown struck-through when on sale
   isLot: boolean;
   blurb: string;
   details: string[];
@@ -67,12 +79,69 @@ export type Pallet = RawPallet & {
 /** Back-compat alias used across components. */
 export type PalletWithCategoryName = Pallet;
 
+// --- sources -------------------------------------------------------------
+const jsonRaw: RawPallet[] = (palletsData as Array<Record<string, unknown>>).map((p) => ({
+  sku: (p.sku as string) ?? null,
+  handle: p.handle as string,
+  title: p.title as string,
+  categorySlug: p.categorySlug as string,
+  manifest: p.manifest as ManifestStatus,
+  condition: p.condition as Condition,
+  retailValueUsd: p.retailValueUsd as number,
+  priceUsd: p.priceUsd as number,
+  salePriceUsd: null,
+  units: p.units as number,
+  costPerUnitUsd: p.costPerUnitUsd as number,
+  availability: p.availability as "in-stock" | "out-of-stock",
+  images: (p.images as string[]) ?? [],
+  featured: false,
+}));
+
+type Row = Record<string, unknown>;
+const num = (v: unknown) => (v == null ? null : Number(v));
+
+function fromRow(r: Row): RawPallet {
+  const price = Number(r.price_usd);
+  const units = Number(r.units) || 1;
+  return {
+    sku: (r.sku as string) ?? null,
+    handle: r.handle as string,
+    title: r.title as string,
+    categorySlug: r.category_slug as string,
+    manifest: r.manifest as ManifestStatus,
+    condition: r.condition as Condition,
+    retailValueUsd: Number(r.retail_value_usd),
+    priceUsd: price,
+    salePriceUsd: num(r.sale_price_usd),
+    units,
+    costPerUnitUsd: r.cost_per_unit_usd == null ? Math.round((price / units) * 100) / 100 : Number(r.cost_per_unit_usd),
+    availability: (r.availability as "in-stock" | "out-of-stock") ?? "in-stock",
+    images: Array.isArray(r.images) ? (r.images as string[]) : [],
+    featured: Boolean(r.featured),
+  };
+}
+
+/** Per-request memoized raw load: Supabase when configured, else static JSON. */
+const loadRaw = cache(async (): Promise<RawPallet[]> => {
+  const sb = getPublicClient();
+  if (!sb) return jsonRaw;
+  const { data, error } = await sb
+    .from("products")
+    .select("*")
+    .order("sort_order", { ascending: true })
+    .order("created_at", { ascending: true });
+  if (error || !data || data.length === 0) return jsonRaw;
+  return (data as Row[]).map(fromRow);
+});
+
 const categoryName = (slug: string) => categories.find((c) => c.slug === slug)?.name ?? slug;
 const usd0 = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
 const productType = (title: string) => title.split(/[:(]/)[0].trim();
 
 function decorate(p: RawPallet): Pallet {
-  const discountPct = Math.max(0, Math.round((1 - p.priceUsd / p.retailValueUsd) * 100));
+  const onSale = p.salePriceUsd != null && p.salePriceUsd < p.priceUsd;
+  const effective = onSale ? (p.salePriceUsd as number) : p.priceUsd;
+  const discountPct = Math.max(0, Math.round((1 - effective / p.retailValueUsd) * 100));
   const isLot = p.units > 1;
   const type = productType(p.title);
 
@@ -105,6 +174,9 @@ function decorate(p: RawPallet): Pallet {
 
   return {
     ...p,
+    priceUsd: effective, // displayed/live price
+    listPriceUsd: p.priceUsd, // regular price ("was")
+    onSale,
     slug: p.handle,
     categoryName: categoryName(p.categorySlug),
     discountPct,
@@ -116,22 +188,42 @@ function decorate(p: RawPallet): Pallet {
   };
 }
 
-const decorated: Pallet[] = raw.map(decorate);
-
-export function allPallets(): Pallet[] {
-  return decorated;
+export async function allPallets(): Promise<Pallet[]> {
+  return (await loadRaw()).map(decorate);
 }
 
-export function getPalletsByCategory(slug: string): Pallet[] {
-  return decorated.filter((p) => p.categorySlug === slug);
+export async function getPalletsByCategory(slug: string): Promise<Pallet[]> {
+  return (await allPallets()).filter((p) => p.categorySlug === slug);
 }
 
-export function getPallet(slug: string): Pallet | undefined {
-  return decorated.find((p) => p.slug === slug);
+export async function getPallet(slug: string): Promise<Pallet | undefined> {
+  return (await allPallets()).find((p) => p.slug === slug);
 }
 
-export function getPalletsByDiscount(minPct: number): Pallet[] {
-  return decorated
-    .filter((p) => p.discountPct >= minPct)
-    .sort((a, b) => b.discountPct - a.discountPct);
+export async function getPalletsByDiscount(minPct: number): Promise<Pallet[]> {
+  return (await allPallets()).filter((p) => p.discountPct >= minPct).sort((a, b) => b.discountPct - a.discountPct);
 }
+
+/** Deal tiers: from Supabase when configured (editable thresholds), else static. */
+export const getDealTiers = cache(async (): Promise<DealTier[]> => {
+  const sb = getPublicClient();
+  if (sb) {
+    const { data } = await sb.from("deal_tiers").select("*").order("sort_order", { ascending: true });
+    if (data && data.length) {
+      return (data as Row[]).map((d, i) => ({
+        slug: d.slug as string,
+        name: d.name as string,
+        minDiscount: Number(d.min_discount),
+        blurb: (d.blurb as string) ?? "",
+        accent: staticDealTiers[i]?.accent ?? "from-brand-600 to-brand-800",
+      }));
+    }
+  }
+  return staticDealTiers.map((d) => ({
+    slug: d.slug,
+    name: d.name,
+    minDiscount: d.minDiscount,
+    blurb: d.blurb,
+    accent: d.accent,
+  }));
+});

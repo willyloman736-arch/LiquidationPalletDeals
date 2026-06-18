@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { dealTiers } from "@/data/categories";
+import { getDealTiers } from "@/data/pallets";
 import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
 
-export function DealsBanner() {
+export async function DealsBanner() {
+  const dealTiers = await getDealTiers();
   return (
     <section className="border-b border-ink-100 bg-white py-14">
       <div className="container">

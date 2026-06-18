@@ -3,7 +3,7 @@ import { categories, dealTiers } from "@/data/categories";
 import { allPallets } from "@/data/pallets";
 import { site } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = site.url.replace(/\/$/, "");
   const staticRoutes = [
     "",
@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.7,
     })),
-    ...allPallets().map((p) => ({
+    ...(await allPallets()).map((p) => ({
       url: `${base}/pallets/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,

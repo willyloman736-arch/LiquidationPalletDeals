@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { PalletGrid } from "@/components/PalletGrid";
-import { allPallets } from "@/data/pallets";
-import { dealTiers } from "@/data/categories";
+import { allPallets, getDealTiers } from "@/data/pallets";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -11,10 +10,11 @@ export const metadata: Metadata = {
   description: "Browse every live liquidation pallet across categories and discount tiers.",
 };
 
-export default function DealsPage() {
-  const pallets = allPallets().sort(
+export default async function DealsPage() {
+  const pallets = (await allPallets()).sort(
     (a, b) => b.priceUsd / b.retailValueUsd - a.priceUsd / a.retailValueUsd
   );
+  const dealTiers = await getDealTiers();
 
   return (
     <>

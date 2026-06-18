@@ -15,8 +15,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { PalletGrid } from "@/components/PalletGrid";
 import { Icon } from "@/components/Icon";
 
-export function generateStaticParams() {
-  return allPallets().map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return (await allPallets()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -25,7 +25,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const p = getPallet(slug);
+  const p = await getPallet(slug);
   if (!p) return { title: "Pallet not found" };
   return {
     title: p.title,
@@ -42,10 +42,10 @@ export default async function PalletPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const pallet = getPallet(slug);
+  const pallet = await getPallet(slug);
   if (!pallet) return notFound();
 
-  const related = allPallets()
+  const related = (await allPallets())
     .filter((p) => p.categorySlug === pallet.categorySlug && p.slug !== pallet.slug)
     .slice(0, 3);
 
