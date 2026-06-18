@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
@@ -12,9 +12,21 @@ const utilityLinks = [{ href: "/deals", label: "All Deals" }];
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [elevated, setElevated] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setElevated(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+    <header
+      className={`sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-white/75 ${
+        elevated ? "header-elevated" : ""
+      }`}
+    >
       {/* Announcement bar */}
       <div className="bg-brand-700 text-white">
         <div className="container flex h-9 items-center justify-center gap-x-4 gap-y-0 overflow-hidden text-center text-xs font-medium">

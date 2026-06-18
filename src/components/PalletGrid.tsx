@@ -1,5 +1,6 @@
 import type { PalletWithCategoryName } from "@/data/pallets";
 import { PalletCard } from "./PalletCard";
+import { Reveal } from "./Reveal";
 
 export function PalletGrid({ pallets }: { pallets: PalletWithCategoryName[] }) {
   if (pallets.length === 0) {
@@ -13,10 +14,12 @@ export function PalletGrid({ pallets }: { pallets: PalletWithCategoryName[] }) {
     );
   }
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {pallets.map((p) => (
-        <PalletCard key={p.slug} pallet={p} />
-      ))}
-    </div>
+    <Reveal>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {pallets.map((p) => (
+          <PalletCard key={p.slug} pallet={p} />
+        ))}
+      </div>
+    </Reveal>
   );
 }

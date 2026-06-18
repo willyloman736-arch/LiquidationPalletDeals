@@ -19,17 +19,23 @@ export function Hero() {
       />
       <div className="container relative py-20 lg:py-28">
         <div className="max-w-2xl">
-          <span className="badge bg-accent-500 text-brand-950">
+          <span className="anim-rise badge bg-accent-500 text-brand-950">
             <Icon name="bolt" className="h-3.5 w-3.5" /> Everything 82% off MSRP or more
           </span>
           <h1 className="mt-5 text-balance text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             Famous brand names, sold by the pallet.
           </h1>
-          <p className="mt-5 max-w-xl text-balance text-lg text-white/85">
+          <p
+            className="anim-rise mt-5 max-w-xl text-balance text-lg text-white/85"
+            style={{ animationDelay: "120ms" }}
+          >
             Bulk offerings of the best labels — 100%-inspected liquidation pallets and truckloads from
             famous and specialty stores. New lots listed daily.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div
+            className="anim-rise mt-8 flex flex-wrap items-center gap-3"
+            style={{ animationDelay: "210ms" }}
+          >
             <Link href="/deals" className="btn-accent">
               Shop all deals
               <Icon name="arrowRight" className="h-4 w-4" />
@@ -41,7 +47,10 @@ export function Hero() {
               Create a free account
             </Link>
           </div>
-          <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8">
+          <dl
+            className="anim-rise mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8"
+            style={{ animationDelay: "300ms" }}
+          >
             <div>
               <dt className="text-xs uppercase tracking-wider text-white/60">Inspection</dt>
               <dd className="mt-1 text-2xl font-bold">100%</dd>

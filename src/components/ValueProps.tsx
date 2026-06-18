@@ -1,4 +1,5 @@
 import { Icon } from "./Icon";
+import { Reveal } from "./Reveal";
 
 const items = [
   {
@@ -27,21 +28,23 @@ export function ValueProps() {
   return (
     <section className="border-b border-ink-100 bg-white py-14">
       <div className="container">
-        <p className="eyebrow">Why resellers choose us</p>
-        <h2 className="mt-2 max-w-2xl text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-          Inventory that&rsquo;s inspected, graded, and ready to resell.
-        </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => (
-            <div key={item.title} className="card p-6">
-              <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-50 text-brand-700">
-                <Icon name={item.icon} />
-              </span>
-              <h3 className="mt-4 text-base font-bold text-ink-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-ink-600">{item.body}</p>
-            </div>
-          ))}
-        </div>
+        <Reveal>
+          <p className="eyebrow">Why resellers choose us</p>
+          <h2 className="mt-2 max-w-2xl text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+            Inventory that&rsquo;s inspected, graded, and ready to resell.
+          </h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {items.map((item) => (
+              <div key={item.title} className="card p-6 transition duration-300 hover:-translate-y-1 hover:shadow-pop">
+                <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-50 text-brand-700">
+                  <Icon name={item.icon} />
+                </span>
+                <h3 className="mt-4 text-base font-bold text-ink-900">{item.title}</h3>
+                <p className="mt-2 text-sm text-ink-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

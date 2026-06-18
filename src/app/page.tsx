@@ -6,6 +6,7 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { DealsBanner } from "@/components/DealsBanner";
 import { PalletGrid } from "@/components/PalletGrid";
 import { CTA } from "@/components/CTA";
+import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/Icon";
 import { allPallets, getPalletsByCategory, type PalletWithCategoryName } from "@/data/pallets";
 
@@ -42,6 +43,7 @@ export default function HomePage() {
       {/* Featured collection: Assorted Cosmetics */}
       <section className="border-b border-ink-100 bg-white py-14">
         <div className="container">
+          <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="eyebrow">Featured collection</p>
@@ -58,6 +60,7 @@ export default function HomePage() {
               <CosmeticsRow key={p.slug} pallet={p} />
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -103,17 +106,19 @@ export default function HomePage() {
       {/* New arrivals */}
       <section className="border-b border-ink-100 bg-white py-14">
         <div className="container">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="eyebrow">New arrivals</p>
-              <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-                Fresh lots, listed daily.
-              </h2>
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow">New arrivals</p>
+                <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+                  Fresh lots, listed daily.
+                </h2>
+              </div>
+              <Link href="/deals" className="link text-sm font-semibold">
+                All new arrivals <Icon name="arrowRight" className="ml-1 inline h-3.5 w-3.5" />
+              </Link>
             </div>
-            <Link href="/deals" className="link text-sm font-semibold">
-              All new arrivals <Icon name="arrowRight" className="ml-1 inline h-3.5 w-3.5" />
-            </Link>
-          </div>
+          </Reveal>
           <div className="mt-10">
             <PalletGrid pallets={featured} />
           </div>
@@ -136,7 +141,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="p-8 sm:p-10">
+            <Reveal className="p-8 sm:p-10">
               <p className="eyebrow">Operations</p>
               <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
                 All operations located in Beacon Falls, Connecticut.
@@ -153,7 +158,7 @@ export default function HomePage() {
                   Contact us <Icon name="arrowRight" className="h-4 w-4" />
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

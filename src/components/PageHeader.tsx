@@ -35,12 +35,17 @@ export function PageHeader({
             </ol>
           </nav>
         )}
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        {eyebrow && <p className="anim-rise eyebrow">{eyebrow}</p>}
         <h1 className="mt-2 max-w-3xl text-balance text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl lg:text-5xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 max-w-2xl text-balance text-base text-ink-600 sm:text-lg">{description}</p>
+          <p
+            className="anim-rise mt-4 max-w-2xl text-balance text-base text-ink-600 sm:text-lg"
+            style={{ animationDelay: "140ms" }}
+          >
+            {description}
+          </p>
         )}
       </div>
     </section>
