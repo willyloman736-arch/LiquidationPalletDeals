@@ -1,0 +1,25 @@
+node_modules/
+.next/
+*.tsbuildinfo
+out/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+.vscode/
+.idea/
+next-env.d.ts
+.vercel
+
+# Staged source assets + raw reference HTML used by scripts/optimize-assets.mjs.
+# Kept locally so images can be re-optimized; not part of the shipped app.
+_recon/
+
+# Local Claude Code tooling config
+.claude/
+
+# Large hero video — pushed/hosted separately (see README)
+public/videos/

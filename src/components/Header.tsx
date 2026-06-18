@@ -1,0 +1,215 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { categories } from "@/data/categories";
+import { site } from "@/lib/site";
+import { Logo } from "./Logo";
+import { Icon } from "./Icon";
+
+const utilityLinks = [{ href: "/deals", label: "All Deals" }];
+
+export function Header() {
+  const [open, setOpen] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75">
+      {/* Announcement bar */}
+      <div className="bg-brand-700 text-white">
+        <div className="container flex h-9 items-center justify-center gap-x-4 gap-y-0 overflow-hidden text-center text-xs font-medium">
+          <span className="hidden sm:inline">Welcome to Wholesale101.com!</span>
+          <Link href="/register" className="underline-offset-2 hover:underline">
+            Register now — create a FREE account
+          </Link>
+          <span aria-hidden="true" className="hidden text-white/40 md:inline">
+            •
+          </span>
+          <Link href="/deals" className="hidden underline-offset-2 hover:underline md:inline">
+            New pallets daily — explore new arrivals
+          </Link>
+        </div>
+      </div>
+
+      {/* Utility strip */}
+      <div className="bg-ink-900 text-ink-100">
+        <div className="container flex h-9 items-center justify-between text-xs">
+          <div className="flex items-center gap-4">
+            <span className="hidden sm:inline">All operations in Beacon Falls, Connecticut</span>
+            <span className="sm:hidden">Beacon Falls, CT</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href={`mailto:${site.email}`} className="hover:text-white">
+              {site.email}
+            </a>
+            <span className="hidden lg:inline">Mon–Fri 7:00am–3:30pm ET</span>
+            <span className="hidden md:inline">English / Español</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="container flex h-16 items-center justify-between gap-4">
+        <Logo priority />
+
+        <div className="hidden max-w-md flex-1 md:block">
+          <label className="relative block">
+            <span className="sr-only">Search pallets</span>
+            <Icon name="search" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-500" />
+            <input
+              type="search"
+              placeholder="Search pallets, brands, or categories"
+              className="w-full rounded-xl border-0 bg-ink-50 py-2.5 pl-9 pr-4 text-sm text-ink-900 ring-1 ring-inset ring-ink-200 placeholder:text-ink-500 focus:bg-white focus:ring-2 focus:ring-brand-600"
+            />
+          </label>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <Link href="/register" className="btn-ghost hidden sm:inline-flex">
+            <Icon name="user" className="h-4 w-4" />
+            <span>Account</span>
+          </Link>
+          <Link href="/deals" className="btn-primary hidden sm:inline-flex">
+            <Icon name="cart" className="h-4 w-4" />
+            <span>Shop deals</span>
+          </Link>
+          <button
+            type="button"
+            className="btn-ghost lg:hidden"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
+          >
+            <Icon name={mobileOpen ? "close" : "menu"} className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      <nav className="hidden border-t border-ink-100 lg:block" aria-label="Primary">
+        <div className="container">
+          <ul className="flex items-center gap-1">
+            {utilityLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+            {categories
+              .filter((c) => c.slug !== "mixed-pallets")
+              .map((c) => (
+                <li
+                  key={c.slug}
+                  className="relative"
+                  onMouseEnter={() => setOpen(c.slug)}
+                  onMouseLeave={() => setOpen(null)}
+                >
+                  <Link
+                    href={`/${c.slug}`}
+                    className="inline-flex items-center gap-1 px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
+                  >
+                    {c.name}
+                    {c.subcategories.length > 0 && (
+                      <Icon name="chevronDown" className="h-4 w-4 text-ink-500" />
+                    )}
+                  </Link>
+                  {open === c.slug && c.subcategories.length > 0 && (
+                    <div className="absolute left-0 top-full z-50 w-64 animate-fade-in pt-2">
+                      <div className="rounded-2xl bg-white p-3 shadow-card ring-1 ring-ink-100">
+                        <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-wider text-ink-500">
+                          {c.name}
+                        </p>
+                        <ul className="space-y-0.5">
+                          {c.subcategories.map((s) => (
+                            <li key={s.slug}>
+                              <Link
+                                href={s.slug === "all" ? `/${c.slug}` : `/${c.slug}#${s.slug}`}
+                                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-ink-800 hover:bg-ink-50 hover:text-brand-700"
+                              >
+                                {s.name}
+                                <Icon name="chevronRight" className="h-4 w-4 text-ink-400" />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ))}
+            <li>
+              <Link
+                href="/mixed-pallets"
+                className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
+              >
+                Mixed Pallets
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      {mobileOpen && (
+        <div className="border-t border-ink-100 bg-white lg:hidden">
+          <div className="container py-4">
+            <label className="relative mb-3 block">
+              <span className="sr-only">Search pallets</span>
+              <Icon name="search" className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-500" />
+              <input
+                type="search"
+                placeholder="Search pallets, brands, or categories"
+                className="w-full rounded-xl border-0 bg-ink-50 py-2.5 pl-9 pr-4 text-sm text-ink-900 ring-1 ring-inset ring-ink-200"
+              />
+            </label>
+            <ul className="space-y-1">
+              {utilityLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink-800 hover:bg-ink-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              {categories
+                .filter((c) => c.slug !== "mixed-pallets")
+                .map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/${c.slug}`}
+                      className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink-800 hover:bg-ink-50"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              <li>
+                <Link
+                  href="/mixed-pallets"
+                  className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink-800 hover:bg-ink-50"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Mixed Pallets
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/register"
+                  className="mt-2 block rounded-lg bg-brand-600 px-3 py-2.5 text-center text-sm font-semibold text-white"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Create free account
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
