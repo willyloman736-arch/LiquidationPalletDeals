@@ -20,6 +20,3 @@ _recon/
 
 # Local Claude Code tooling config
 .claude/
-
-# Large hero video — pushed/hosted separately (see README)
-public/videos/
