@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const highlights = [
-  { icon: "pin", title: "Free pickup", body: "Pick up free at 125 Railroad Ave, Beacon Falls, CT — Mon–Fri, 7:00am–3:30pm ET." },
+  { icon: "pin", title: "Free pickup", body: "Pick up free at 5061 Shawland Rd, Jacksonville, FL — Mon–Fri, 7:00am–3:30pm ET." },
   { icon: "truck", title: "Live LTL rates", body: "In-cart LTL rates via ShipHawk across 250+ carriers. Best for 1–20 pallets." },
   { icon: "boxes", title: '"Invoice Me" (LTL/FTL)', body: "Larger orders ship FTL with a market quote — you're billed once the rate is calculated." },
 ];

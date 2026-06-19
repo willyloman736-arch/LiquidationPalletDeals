@@ -43,8 +43,8 @@ export function Header() {
       <div className="bg-ink-900 text-ink-100">
         <div className="container flex h-9 items-center justify-between text-xs">
           <div className="flex items-center gap-4">
-            <span className="hidden sm:inline">All operations in Beacon Falls, Connecticut</span>
-            <span className="sm:hidden">Beacon Falls, CT</span>
+            <span className="hidden sm:inline">All operations in Jacksonville, Florida</span>
+            <span className="sm:hidden">Jacksonville, FL</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline">Mon–Fri 7:00am–3:30pm ET</span>

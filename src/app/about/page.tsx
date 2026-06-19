@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Liquidation Pallet Deals is backed by NEJ, Inc. and 33 years of B2B reverse-logistics experience. We inspect and grade every lot before it ships from Beacon Falls, Connecticut.",
+    "Liquidation Pallet Deals is backed by NEJ, Inc. and 33 years of B2B reverse-logistics experience. We inspect and grade every lot before it ships from Jacksonville, Florida.",
 };
 
 const stats = [
@@ -33,7 +33,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="33 years of B2B reverse-logistics experience."
-        description="Liquidation Pallet Deals is backed by NEJ, Inc. — inspecting, grading, and shipping famous and specialty-store brand liquidation from Beacon Falls, Connecticut."
+        description="Liquidation Pallet Deals is backed by NEJ, Inc. — inspecting, grading, and shipping famous and specialty-store brand liquidation from Jacksonville, Florida."
         breadcrumbs={[
           { href: "/", label: "Home" },
           { href: "/about", label: "About" },
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink-100">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="NEJ / Liquidation Pallet Deals warehouse exterior in Beacon Falls, Connecticut"
+                alt="NEJ / Liquidation Pallet Deals warehouse exterior in Jacksonville, Florida"
                 fill
                 sizes="(min-width:1024px) 40vw, 100vw"
                 className="object-cover"

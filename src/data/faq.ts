@@ -7,7 +7,7 @@ export type FAQ = {
 export const faqs: FAQ[] = [
   {
     question: "Why should I buy from Liquidation Pallet Deals?",
-    answer: `Our famous and specialty store offerings are 82% or more off MSRP. As a Liquidation Pallet Deals customer, you can capitalize on selling brand-name merchandise by providing customers with great value, allowing for faster growth and profitability for your business. Our quality control standards are the industry's highest, ensuring maximum recovery on your purchase from Liquidation Pallet Deals. Customers are invited and encouraged to visit our Beacon Falls, Connecticut warehouses to view merchandise before purchase.`,
+    answer: `Our famous and specialty store offerings are 82% or more off MSRP. As a Liquidation Pallet Deals customer, you can capitalize on selling brand-name merchandise by providing customers with great value, allowing for faster growth and profitability for your business. Our quality control standards are the industry's highest, ensuring maximum recovery on your purchase from Liquidation Pallet Deals. Customers are invited and encouraged to visit our Jacksonville, Florida warehouse to view merchandise before purchase.`,
   },
   {
     question: "How do I make a purchase from Liquidation Pallet Deals?",
@@ -31,7 +31,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Who is responsible for lost and/or damaged merchandise?",
-    answer: `Title to merchandise passes from Liquidation Pallet Deals to the customer when the merchandise leaves Liquidation Pallet Deals's docks in Beacon Falls, CT. The delivering carrier should be held responsible for any lost, damaged or broken packages. All claims should be directed to the delivering carrier. All Liquidation Pallet Deals packages are properly sealed in good condition cartons. Any orders picked up are the responsibility of the customer. Returns and refunds are not accepted.`,
+    answer: `Title to merchandise passes from Liquidation Pallet Deals to the customer when the merchandise leaves Liquidation Pallet Deals's docks in Jacksonville, FL. The delivering carrier should be held responsible for any lost, damaged or broken packages. All claims should be directed to the delivering carrier. All Liquidation Pallet Deals packages are properly sealed in good condition cartons. Any orders picked up are the responsibility of the customer. Returns and refunds are not accepted.`,
   },
   {
     question: "What are Past Season Transfers (PSTs) and Marked Out of Stock (MOS) goods?",

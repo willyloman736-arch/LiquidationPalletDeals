@@ -19,7 +19,7 @@ export function CTA() {
                 </h2>
                 <p className="mt-4 max-w-xl text-balance text-white/80">
                   Browse the full catalog and check out as a guest — no account required. Get live LTL
-                  freight rates at checkout, or pick up free from our Connecticut dock.
+                  freight rates at checkout, or pick up free from our Florida dock.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">

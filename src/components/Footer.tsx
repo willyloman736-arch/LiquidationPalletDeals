@@ -15,15 +15,7 @@ const infoLinks = [
   { href: "/faq", label: "FAQ" },
 ];
 
-const paymentMethods = [
-  "Visa",
-  "Mastercard",
-  "American Express",
-  "Discover",
-  "JCB",
-  "Diners Club",
-  "Apple Pay",
-];
+const paymentMethods = ["Wire Transfer", "Apple Pay", "Chime", "Zelle"];
 
 export function Footer() {
   return (

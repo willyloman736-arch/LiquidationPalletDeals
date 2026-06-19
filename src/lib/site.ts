@@ -9,16 +9,15 @@ export const site = {
   email: "info@liquidationspalletdeals.com",
   hours: "Monday–Friday, 7:00 am – 3:30 pm ET",
   address: {
-    line1: "125 Railroad Ave",
-    city: "Beacon Falls",
-    state: "CT",
-    zip: "06403",
+    line1: "5061 Shawland Rd",
+    city: "Jacksonville",
+    state: "FL",
+    zip: "",
     country: "USA",
   },
-  // Existing social profiles (update handles once the rebranded accounts exist).
   social: {
-    facebook: "https://www.facebook.com/wholesale101/",
-    tiktok: "https://www.tiktok.com/@wholesale101.com?lang=en",
+    facebook: "https://www.facebook.com/share/191hFXaqdB/",
+    tiktok: "https://www.tiktok.com/@liquidationpalletdeals",
   },
   // Sister B2C storefront referenced on the About page.
   retailSite: "https://retail101.com",

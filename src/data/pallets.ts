@@ -53,7 +53,7 @@ export const conditionDescription: Record<Condition, string> = {
   "customer-return": "Merchandise returned by consumers under the retailer's return policy; quality varies.",
 };
 
-const SHIPS_FROM = "Beacon Falls, CT";
+const SHIPS_FROM = "Jacksonville, FL";
 
 export type DealTier = {
   slug: string;

@@ -76,7 +76,7 @@ export default async function HomePage() {
             </h2>
             <p className="mt-4 max-w-xl text-white/80">
               33 years of B2B reverse-logistics experience behind every lot. We open, sort, and
-              condition-grade inventory at our Beacon Falls, Connecticut facility, then list new pallets
+              condition-grade inventory at our Jacksonville, Florida facility, then list new pallets
               and truckloads daily.
             </p>
             <Link
@@ -90,7 +90,7 @@ export default async function HomePage() {
             <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl shadow-pop ring-1 ring-white/10">
               <Image
                 src="/images/marketing/hero-warehouse.webp"
-                alt="Inside the Liquidation Pallet Deals warehouse in Beacon Falls, Connecticut"
+                alt="Inside the Liquidation Pallet Deals warehouse in Jacksonville, Florida"
                 fill
                 sizes="(min-width:1024px) 45vw, 100vw"
                 className="object-cover"
@@ -150,7 +150,7 @@ export default async function HomePage() {
             <div className="relative aspect-[4/3] w-full lg:aspect-auto lg:h-full lg:min-h-[320px]">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="Liquidation Pallet Deals warehouse exterior in Beacon Falls, Connecticut"
+                alt="Liquidation Pallet Deals warehouse exterior in Jacksonville, Florida"
                 fill
                 sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover"
@@ -159,10 +159,10 @@ export default async function HomePage() {
             <Reveal className="p-8 sm:p-10">
               <p className="eyebrow">Operations</p>
               <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-                All operations located in Beacon Falls, Connecticut.
+                All operations located in Jacksonville, Florida.
               </h2>
               <p className="mt-4 text-ink-600">
-                Warehousing, inspection, and shipping all live under one roof at 125 Railroad Ave. Pick up
+                Warehousing, inspection, and shipping all live under one roof at 5061 Shawland Rd. Pick up
                 free from our dock, or get live LTL freight rates at checkout for delivery nationwide.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">

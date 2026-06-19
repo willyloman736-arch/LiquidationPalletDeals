@@ -20,7 +20,7 @@ const items = [
   {
     icon: "truck",
     title: "Freight handled for you",
-    body: "Live LTL rates at checkout through our ShipHawk carrier network, or pick up free from our Beacon Falls, CT dock.",
+    body: "Live LTL rates at checkout through our ShipHawk carrier network, or pick up free from our Jacksonville, FL dock.",
   },
 ];
 
