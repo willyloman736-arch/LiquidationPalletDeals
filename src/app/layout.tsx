@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SiteFrame } from "@/components/SiteFrame";
 import { site } from "@/lib/site";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -100,11 +101,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main" className="flex-1">
+        <SiteFrame header={<Header />} footer={<Footer />}>
           {children}
-        </main>
-        <Footer />
+        </SiteFrame>
       </body>
     </html>
   );
