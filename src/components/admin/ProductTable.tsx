@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export type AdminRow = {
   handle: string;
@@ -50,6 +51,7 @@ export function ProductTable({ products }: { products: AdminRow[] }) {
               <th className="px-4 py-2.5 font-semibold">Price</th>
               <th className="px-4 py-2.5 font-semibold">Off</th>
               <th className="px-4 py-2.5 font-semibold">Stock</th>
+              <th className="px-4 py-2.5"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-ink-100">
@@ -93,11 +95,19 @@ export function ProductTable({ products }: { products: AdminRow[] }) {
                     <span className="text-xs font-semibold text-ink-400">Out</span>
                   )}
                 </td>
+                <td className="whitespace-nowrap px-4 py-3 text-right">
+                  <Link
+                    href={`/admin/products/${p.handle}`}
+                    className="text-sm font-semibold text-brand-700 hover:text-accent-700"
+                  >
+                    Edit
+                  </Link>
+                </td>
               </tr>
             ))}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-10 text-center text-ink-500">
+                <td colSpan={6} className="px-4 py-10 text-center text-ink-500">
                   No products match “{q}”.
                 </td>
               </tr>

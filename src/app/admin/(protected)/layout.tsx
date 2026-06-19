@@ -33,6 +33,9 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
             <Link href="/admin" className="font-semibold text-white/85 hover:text-white">
               Products
             </Link>
+            <Link href="/admin/deals" className="text-white/70 hover:text-white">
+              Deal tiers
+            </Link>
             <Link href="/" className="text-white/70 hover:text-white">
               View site ↗
             </Link>

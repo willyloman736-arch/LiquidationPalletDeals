@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { allPallets } from "@/data/pallets";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import { ProductTable, type AdminRow } from "@/components/admin/ProductTable";
@@ -28,6 +29,10 @@ export default async function AdminDashboard() {
           <h1 className="text-2xl font-extrabold tracking-tight text-ink-900">Products</h1>
           <p className="mt-1 text-sm text-ink-600">{rows.length} products in the catalog.</p>
         </div>
+        <div className="flex gap-2">
+          <Link href="/admin/deals" className="btn-secondary">Deal tiers</Link>
+          <Link href="/admin/products/new" className="btn-primary">Add product</Link>
+        </div>
       </div>
 
       {!isSupabaseConfigured() && (
@@ -36,11 +41,6 @@ export default async function AdminDashboard() {
           database env vars are live, this reads from your database.
         </div>
       )}
-
-      <div className="mb-5 rounded-xl bg-brand-50 px-4 py-3 text-sm text-brand-900 ring-1 ring-brand-100">
-        Editing — add / edit / delete products, set discounts &amp; sale prices, manage the deal tiers, and
-        upload photos — is being added next. This overview is live now.
-      </div>
 
       <ProductTable products={rows} />
     </div>
