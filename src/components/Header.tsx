@@ -26,16 +26,13 @@ export function Header() {
         elevated ? "header-elevated" : ""
       }`}
     >
-      {/* Announcement bar */}
+      {/* Announcement bar — free shipping promo */}
       <div className="bg-brand-700 text-white">
-        <div className="container flex h-9 items-center justify-center gap-x-4 gap-y-0 overflow-hidden text-center text-xs font-medium">
-          <span>Welcome to Liquidation Pallet Deals!</span>
-          <span aria-hidden="true" className="hidden text-white/40 sm:inline">
-            •
+        <div className="container flex h-9 items-center justify-center gap-2 overflow-hidden text-center text-xs font-medium">
+          <Icon name="truck" className="h-4 w-4 shrink-0 text-accent-300" />
+          <span>
+            Free shipping on orders over <span className="font-bold">$650</span>
           </span>
-          <Link href="/deals" className="hidden underline-offset-2 hover:underline sm:inline">
-            New pallets daily — explore new arrivals
-          </Link>
         </div>
       </div>
 
