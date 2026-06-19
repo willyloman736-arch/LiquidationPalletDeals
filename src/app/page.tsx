@@ -64,7 +64,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Famous & Specialty Store Brand Pallets — video */}
+      {/* Famous & Specialty Store Brand Pallets — warehouse photos */}
       <section className="border-b border-ink-100 bg-ink-900 py-14 text-white">
         <div className="container grid items-center gap-10 lg:grid-cols-2">
           <div>
@@ -86,20 +86,35 @@ export default async function HomePage() {
               Our story <Icon name="arrowRight" className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <div className="overflow-hidden rounded-2xl shadow-pop ring-1 ring-white/10">
-            <video
-              className="aspect-video w-full bg-ink-800"
-              poster="/images/marketing/hero-poster.webp"
-              controls
-              muted
-              loop
-              playsInline
-              preload="none"
-            >
-              <source src="/videos/hero.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <Reveal className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-2xl shadow-pop ring-1 ring-white/10">
+              <Image
+                src="/images/marketing/hero-warehouse.webp"
+                alt="Inside the Liquidation Pallet Deals warehouse in Beacon Falls, Connecticut"
+                fill
+                sizes="(min-width:1024px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <Image
+                src="/images/marketing/pallets.webp"
+                alt="Shrink-wrapped liquidation pallets staged for shipment"
+                fill
+                sizes="(min-width:1024px) 22vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-white/10">
+              <Image
+                src="/images/marketing/feature-inspection.webp"
+                alt="Condition-grading and inspecting incoming branded merchandise"
+                fill
+                sizes="(min-width:1024px) 22vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
