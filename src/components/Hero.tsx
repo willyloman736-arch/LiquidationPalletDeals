@@ -1,20 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Icon } from "./Icon";
+import { HeroVideo } from "./HeroVideo";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-ink-900 text-white">
-      <Image
-        src="/images/marketing/hero-aerial.webp"
-        alt="Aerial view of the Liquidation Pallet Deals liquidation warehouse and loading docks in Beacon Falls, Connecticut"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <HeroVideo />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-ink-900/92 via-ink-900/75 to-ink-900/40"
+        className="absolute inset-0 bg-gradient-to-r from-ink-900/95 via-ink-900/80 to-ink-900/55"
         aria-hidden="true"
       />
       <div className="container relative py-20 lg:py-28">
