@@ -62,6 +62,16 @@ const orgJsonLd = {
   name: site.legalName,
   url: site.url,
   logo: `${site.url}/favicon.png`,
+  email: site.email,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: site.email,
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.line1,

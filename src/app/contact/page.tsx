@@ -28,6 +28,18 @@ export default function ContactPage() {
             <h2 className="text-lg font-bold text-ink-900">Customer service</h2>
             <ul className="mt-4 space-y-3 text-sm text-ink-700">
               <li className="flex items-start gap-3">
+                <Icon name="mail" className="mt-0.5 h-5 w-5 text-brand-700" />
+                <div>
+                  <p className="font-semibold text-ink-900">Email us</p>
+                  <a href={`mailto:${site.email}`} className="link break-all font-medium">
+                    {site.email}
+                  </a>
+                  <p className="text-xs text-ink-500">
+                    The fastest way to reach us — we reply within the business day.
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
                 <Icon name="clock" className="mt-0.5 h-5 w-5 text-brand-700" />
                 <div>
                   <p className="font-semibold text-ink-900">Business hours</p>

@@ -44,6 +44,12 @@ export function Footer() {
                 <Icon name="clock" className="h-4 w-4 text-brand-700" />
                 <span>{site.hours}</span>
               </p>
+              <p className="flex items-center gap-2">
+                <Icon name="mail" className="h-4 w-4 shrink-0 text-brand-700" />
+                <a href={`mailto:${site.email}`} className="hover:text-brand-700">
+                  {site.email}
+                </a>
+              </p>
             </address>
             <div className="mt-6 flex items-center gap-4">
               <div className="flex items-center gap-3">
