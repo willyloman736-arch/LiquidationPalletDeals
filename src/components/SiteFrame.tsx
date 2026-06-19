@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { SocialProof } from "./SocialProof";
 
 /** Renders the public Header/Footer around page content — except on /admin,
  *  which has its own shell. */
@@ -22,6 +23,7 @@ export function SiteFrame({
         {children}
       </main>
       {!isAdmin && footer}
+      {!isAdmin && <SocialProof />}
     </>
   );
 }
