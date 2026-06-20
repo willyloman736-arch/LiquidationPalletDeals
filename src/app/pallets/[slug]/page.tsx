@@ -16,6 +16,8 @@ import { PalletGrid } from "@/components/PalletGrid";
 import { Icon } from "@/components/Icon";
 import { BuyBox } from "@/components/BuyBox";
 
+export const revalidate = 120; // ISR — reflect DB changes without a redeploy
+
 export async function generateStaticParams() {
   return (await allPallets()).map((p) => ({ slug: p.slug }));
 }

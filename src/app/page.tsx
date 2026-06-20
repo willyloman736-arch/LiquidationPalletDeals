@@ -10,6 +10,8 @@ import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/Icon";
 import { allPallets, getPalletsByCategory, type PalletWithCategoryName } from "@/data/pallets";
 
+export const revalidate = 120; // ISR — reflect DB changes without a redeploy
+
 const FEATURED_SKUS = ["G51235", "ARP201", "G51322", "G51326", "G58138", "G51490"];
 
 export default async function HomePage() {

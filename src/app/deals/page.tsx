@@ -5,6 +5,8 @@ import { PalletGrid } from "@/components/PalletGrid";
 import { allPallets, getDealTiers } from "@/data/pallets";
 import { Icon } from "@/components/Icon";
 
+export const revalidate = 120; // ISR — reflect DB changes without a redeploy
+
 export const metadata: Metadata = {
   title: "All deals",
   description: "Browse every live liquidation pallet across categories and discount tiers.",
