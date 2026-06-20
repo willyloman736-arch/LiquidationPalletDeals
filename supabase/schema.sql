@@ -19,6 +19,7 @@ create table if not exists public.products (
   cost_per_unit_usd numeric,
   availability      text not null default 'in-stock',        -- in-stock | out-of-stock
   images            text[] not null default '{}',
+  summary           text,                                    -- optional brand-voice blurb; falls back to a generated one
   featured          boolean not null default false,
   sort_order        integer not null default 0,
   created_at        timestamptz not null default now(),

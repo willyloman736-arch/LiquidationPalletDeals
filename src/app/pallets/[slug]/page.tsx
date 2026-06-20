@@ -180,7 +180,9 @@ export default async function PalletPage({
                 </p>
 
                 <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                  <Stat label="Est. retail value" value={usd(pallet.retailValueUsd)} />
+                  {pallet.discountPct > 0 && (
+                    <Stat label="Est. retail value" value={usd(pallet.retailValueUsd)} />
+                  )}
                   {pallet.isLot ? (
                     <>
                       <Stat label="Units" value={pallet.units.toLocaleString("en-US")} />

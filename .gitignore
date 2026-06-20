@@ -18,5 +18,9 @@ next-env.d.ts
 # Kept locally so images can be re-optimized; not part of the shipped app.
 _recon/
 
+# Intermediate import artifacts (WooCommerce CSV, parsed/mapped/voice JSON, recon).
+# The shipped catalog lives in src/data/pallets.json; these are scratch.
+import/
+
 # Local Claude Code tooling config
 .claude/

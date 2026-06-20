@@ -21,6 +21,7 @@ type RawPallet = {
   costPerUnitUsd: number;
   availability: "in-stock" | "out-of-stock";
   images: string[];
+  summary: string | null;
   featured: boolean;
 };
 
@@ -94,6 +95,7 @@ const jsonRaw: RawPallet[] = (palletsData as Array<Record<string, unknown>>).map
   costPerUnitUsd: p.costPerUnitUsd as number,
   availability: p.availability as "in-stock" | "out-of-stock",
   images: (p.images as string[]) ?? [],
+  summary: (p.summary as string) ?? null,
   featured: false,
 }));
 
@@ -117,6 +119,7 @@ function fromRow(r: Row): RawPallet {
     costPerUnitUsd: r.cost_per_unit_usd == null ? Math.round((price / units) * 100) / 100 : Number(r.cost_per_unit_usd),
     availability: (r.availability as "in-stock" | "out-of-stock") ?? "in-stock",
     images: Array.isArray(r.images) ? (r.images as string[]) : [],
+    summary: (r.summary as string) ?? null,
     featured: Boolean(r.featured),
   };
 }
@@ -145,20 +148,24 @@ function decorate(p: RawPallet): Pallet {
   const isLot = p.units > 1;
   const type = productType(p.title);
 
-  const blurb = isLot
-    ? `${type} — ${p.units.toLocaleString("en-US")} units at $${p.costPerUnitUsd.toFixed(2)} per unit, ${discountPct}% off original retail.`
-    : `${type} — ${conditionLabel[p.condition]}${discountPct > 0 ? `, ${discountPct}% off retail` : ""}.`;
+  const hasRetail = discountPct > 0; // flat-priced lots have no separate MSRP to show
+  const generatedBlurb = isLot
+    ? `${type} — ${p.units.toLocaleString("en-US")} units at $${p.costPerUnitUsd.toFixed(2)} per unit${hasRetail ? `, ${discountPct}% off original retail` : ""}.`
+    : `${type} — ${conditionLabel[p.condition]}${hasRetail ? `, ${discountPct}% off retail` : ""}.`;
+  const blurb = p.summary && p.summary.trim() ? p.summary.trim() : generatedBlurb;
 
   const details = isLot
     ? [
-        `Estimated retail value ${usd0(p.retailValueUsd)}`,
+        ...(hasRetail ? [`Estimated retail value ${usd0(p.retailValueUsd)}`] : []),
         `${p.units.toLocaleString("en-US")} units · $${p.costPerUnitUsd.toFixed(2)} cost per unit`,
         `Quality: ${conditionLabel[p.condition]}`,
         manifestLabel[p.manifest],
         `Ships from ${SHIPS_FROM}`,
       ]
     : [
-        `Estimated retail value ${usd0(p.retailValueUsd)}`,
+        ...(hasRetail
+          ? [`Estimated retail value ${usd0(p.retailValueUsd)}`]
+          : [`Total pallet price ${usd0(p.priceUsd)}`]),
         `Quality: ${conditionLabel[p.condition]}`,
         p.availability === "in-stock" ? "In stock" : "Currently out of stock",
         `Ships from ${SHIPS_FROM}`,

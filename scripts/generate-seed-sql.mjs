@@ -16,7 +16,8 @@ const productRows = products.map(
   (p, i) =>
     `(${p.sku ? q(p.sku) : "null"}, ${q(p.handle)}, ${q(p.title)}, ${q(p.categorySlug)}, ` +
     `${q(p.manifest)}, ${q(p.condition)}, ${Number(p.retailValueUsd)}, ${Number(p.priceUsd)}, ` +
-    `${Number(p.units)}, ${numOrNull(p.costPerUnitUsd)}, ${q(p.availability)}, ${arr(p.images)}, ${i})`
+    `${Number(p.units)}, ${numOrNull(p.costPerUnitUsd)}, ${q(p.availability)}, ${arr(p.images)}, ` +
+    `${p.summary ? q(p.summary) : "null"}, ${i})`
 );
 
 const dealTiers = [
@@ -34,7 +35,7 @@ ${tierRows.join(",\n")}
 on conflict (slug) do nothing;
 
 insert into public.products
-  (sku, handle, title, category_slug, manifest, condition, retail_value_usd, price_usd, units, cost_per_unit_usd, availability, images, sort_order)
+  (sku, handle, title, category_slug, manifest, condition, retail_value_usd, price_usd, units, cost_per_unit_usd, availability, images, summary, sort_order)
 values
 ${productRows.join(",\n")}
 on conflict (handle) do nothing;

@@ -44,10 +44,22 @@ export function PalletCard({ pallet }: { pallet: PalletWithCategoryName }) {
         </h3>
         <p className="mt-1 line-clamp-2 text-sm text-ink-600">{pallet.blurb}</p>
         <div className="mt-4 grid grid-cols-3 gap-3 border-t border-ink-100 pt-4 text-center">
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-ink-500">Retail</p>
-            <p className="text-sm font-bold text-ink-900">{fmt(pallet.retailValueUsd)}</p>
-          </div>
+          {pallet.discountPct > 0 ? (
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-ink-500">Retail</p>
+              <p className="text-sm font-bold text-ink-900">{fmt(pallet.retailValueUsd)}</p>
+            </div>
+          ) : pallet.isLot ? (
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-ink-500">Per unit</p>
+              <p className="text-sm font-bold text-ink-900">${pallet.costPerUnitUsd.toFixed(2)}</p>
+            </div>
+          ) : (
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-ink-500">Condition</p>
+              <p className="text-sm font-bold text-ink-900">{conditionLabel[pallet.condition]}</p>
+            </div>
+          )}
           <div>
             <p className="text-[10px] uppercase tracking-wider text-ink-500">Price</p>
             <p className="text-sm font-bold text-brand-700">{fmt(pallet.priceUsd)}</p>
