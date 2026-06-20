@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { categories } from "@/data/categories";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
+import { useCart } from "@/components/cart/CartProvider";
 
 const utilityLinks = [{ href: "/deals", label: "All Deals" }];
 
@@ -67,9 +68,10 @@ export function Header() {
 
         <div className="flex items-center gap-1">
           <Link href="/deals" className="btn-primary hidden sm:inline-flex">
-            <Icon name="cart" className="h-4 w-4" />
+            <Icon name="bolt" className="h-4 w-4" />
             <span>Shop deals</span>
           </Link>
+          <CartButton />
           <button
             type="button"
             className="btn-ghost lg:hidden"
@@ -200,5 +202,23 @@ export function Header() {
         </div>
       )}
     </header>
+  );
+}
+
+function CartButton() {
+  const { count, ready } = useCart();
+  return (
+    <Link
+      href="/cart"
+      aria-label={ready && count > 0 ? `Cart, ${count} ${count === 1 ? "item" : "items"}` : "Cart"}
+      className="relative grid h-10 w-10 place-items-center rounded-lg text-ink-700 hover:bg-ink-50 hover:text-brand-700"
+    >
+      <Icon name="cart" className="h-5 w-5" />
+      {ready && count > 0 && (
+        <span className="absolute right-0.5 top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-accent-500 px-1 text-[10px] font-bold leading-none text-brand-950">
+          {count > 99 ? "99+" : count}
+        </span>
+      )}
+    </Link>
   );
 }

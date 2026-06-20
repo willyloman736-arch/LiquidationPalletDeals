@@ -21,4 +21,7 @@ export const site = {
   },
   // Sister B2C storefront referenced on the About page.
   retailSite: "https://retail101.com",
+  // Orders are delivered as a prefilled WhatsApp message to this number.
+  whatsappNumber: "16569992368", // digits only — used to build wa.me links
+  orderPhoneDisplay: "+1 (656) 999-2368",
 } as const;

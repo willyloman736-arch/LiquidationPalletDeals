@@ -201,7 +201,16 @@ export default async function PalletPage({
                   <Stat label="Ships from" value={pallet.shipsFrom} />
                 </dl>
 
-                <BuyBox priceUsd={pallet.priceUsd} soldOut={pallet.availability === "out-of-stock"} />
+                <BuyBox
+                  item={{
+                    handle: pallet.handle,
+                    title: pallet.title,
+                    sku: pallet.sku,
+                    image: pallet.images[0],
+                    priceUsd: pallet.priceUsd,
+                  }}
+                  soldOut={pallet.availability === "out-of-stock"}
+                />
 
                 <div className="mt-6 grid grid-cols-3 gap-3 border-t border-ink-100 pt-5 text-center text-xs text-ink-600">
                   <div className="flex flex-col items-center gap-1">

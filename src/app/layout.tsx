@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SiteFrame } from "@/components/SiteFrame";
+import { CartProvider } from "@/components/cart/CartProvider";
 import { site } from "@/lib/site";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -111,9 +112,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <SiteFrame header={<Header />} footer={<Footer />}>
-          {children}
-        </SiteFrame>
+        <CartProvider>
+          <SiteFrame header={<Header />} footer={<Footer />}>
+            {children}
+          </SiteFrame>
+        </CartProvider>
       </body>
     </html>
   );
