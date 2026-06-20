@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
 import { Icon } from "@/components/Icon";
-import { PAYMENT_METHODS, buildOrderText, whatsappUrl, type CheckoutForm } from "@/lib/order";
+import { PAYMENT_METHODS, buildOrderText, whatsappUrl, orderMailto, type CheckoutForm } from "@/lib/order";
 import { site } from "@/lib/site";
 
 const usd = (n: number) =>
@@ -19,16 +19,33 @@ const EMPTY: CheckoutForm = {
 const field =
   "mt-1 w-full rounded-xl border-0 bg-white px-3 py-2.5 text-sm text-ink-900 ring-1 ring-inset ring-ink-200 placeholder:text-ink-500 focus:ring-2 focus:ring-brand-600";
 
+type Channel = "email" | "whatsapp";
+
 export default function CheckoutPage() {
   const { items, subtotal, count, ready, clear } = useCart();
   const [form, setForm] = useState<CheckoutForm>(EMPTY);
-  const [sentUrl, setSentUrl] = useState<string | null>(null);
+  const [sent, setSent] = useState<{ channel: Channel; url: string } | null>(null);
+  const formEl = useRef<HTMLFormElement>(null);
 
   const set = (k: keyof CheckoutForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
+  const submitVia = (channel: Channel) => {
+    if (!formEl.current?.reportValidity()) return; // run native validation first
+    const text = buildOrderText(
+      items.map((i) => ({ title: i.title, sku: i.sku, priceUsd: i.priceUsd, qty: i.qty })),
+      form,
+      subtotal
+    );
+    const url = channel === "email" ? orderMailto(text, form.name) : whatsappUrl(text);
+    if (channel === "email") window.location.href = url;
+    else window.open(url, "_blank", "noopener,noreferrer");
+    setSent({ channel, url });
+  };
+
   // ---- order sent confirmation ----
-  if (sentUrl) {
+  if (sent) {
+    const isEmail = sent.channel === "email";
     return (
       <section className="py-16">
         <div className="container max-w-xl text-center">
@@ -37,18 +54,17 @@ export default function CheckoutPage() {
           </span>
           <h1 className="mt-4 text-2xl font-extrabold tracking-tight text-ink-900">Your order is ready to send</h1>
           <p className="mt-2 text-ink-600">
-            We opened WhatsApp with your full order pre-filled to {site.phone} — just press send. We&rsquo;ll
-            reply with a freight quote and payment instructions for your chosen method.
+            {isEmail
+              ? `We opened your email app with your order addressed to ${site.email} — just press send.`
+              : `We opened WhatsApp with your order to ${site.phone} — just press send.`}{" "}
+            We&rsquo;ll reply with a freight quote and payment instructions for your chosen method.
           </p>
           <div className="mt-6 flex flex-col items-center gap-3">
-            <a href={sentUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Didn&rsquo;t open? Send on WhatsApp <Icon name="arrowRight" className="h-4 w-4" />
+            <a href={sent.url} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Didn&rsquo;t open? {isEmail ? "Email your order" : "Send on WhatsApp"}{" "}
+              <Icon name="arrowRight" className="h-4 w-4" />
             </a>
-            <button
-              type="button"
-              onClick={() => { clear(); }}
-              className="text-sm font-semibold text-ink-500 hover:text-brand-700"
-            >
+            <button type="button" onClick={() => clear()} className="text-sm font-semibold text-ink-500 hover:text-brand-700">
               Clear my cart
             </button>
             <Link href="/deals" className="text-sm font-semibold text-brand-700 hover:underline">
@@ -75,18 +91,6 @@ export default function CheckoutPage() {
     );
   }
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const text = buildOrderText(
-      items.map((i) => ({ title: i.title, sku: i.sku, priceUsd: i.priceUsd, qty: i.qty })),
-      form,
-      subtotal
-    );
-    const url = whatsappUrl(text);
-    window.open(url, "_blank", "noopener,noreferrer");
-    setSentUrl(url);
-  };
-
   return (
     <section className="py-12">
       <div className="container max-w-5xl">
@@ -97,7 +101,7 @@ export default function CheckoutPage() {
           instructions for your chosen method.
         </p>
 
-        <form onSubmit={onSubmit} className="mt-8 grid gap-8 lg:grid-cols-12">
+        <form ref={formEl} onSubmit={(e) => e.preventDefault()} className="mt-8 grid gap-8 lg:grid-cols-12">
           <div className="space-y-8 lg:col-span-7">
             <fieldset>
               <legend className="text-lg font-bold text-ink-900">Shipping address</legend>
@@ -198,11 +202,22 @@ export default function CheckoutPage() {
                   <dd className="text-ink-500">Quoted after order</dd>
                 </div>
               </dl>
-              <button type="submit" className="btn-primary mt-6 w-full justify-center">
-                Send order on WhatsApp <Icon name="arrowRight" className="h-4 w-4" />
-              </button>
+
+              <div className="mt-6 space-y-2">
+                <button type="button" onClick={() => submitVia("email")} className="btn-primary w-full justify-center">
+                  Checkout <Icon name="arrowRight" className="h-4 w-4" />
+                </button>
+                <button type="button" onClick={() => submitVia("whatsapp")} className="btn-secondary w-full justify-center">
+                  Submit quote on WhatsApp
+                </button>
+              </div>
               <p className="mt-3 text-center text-xs text-ink-500">
-                Opens WhatsApp to {site.phone} with your full order pre-filled. No card is charged.
+                <strong>Checkout</strong> emails your order to {site.email}. <strong>WhatsApp</strong> opens a chat to{" "}
+                {site.phone}. No card is charged.
+              </p>
+              <p className="mt-2 border-t border-ink-100 pt-3 text-center text-xs text-ink-500">
+                Questions first? <a href={`mailto:${site.email}`} className="link">Email us</a> or{" "}
+                <a href={`tel:+${site.whatsappNumber}`} className="link">call/text {site.phone}</a>.
               </p>
             </div>
           </aside>

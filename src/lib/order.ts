@@ -58,3 +58,9 @@ export function buildOrderText(items: OrderLine[], form: CheckoutForm, subtotal:
 export function whatsappUrl(text: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
+
+/** Order delivered to our inbox via the customer's email client. */
+export function orderMailto(text: string, name: string): string {
+  const subject = `New order${name.trim() ? ` — ${name.trim()}` : ""} | ${site.name}`;
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+}
