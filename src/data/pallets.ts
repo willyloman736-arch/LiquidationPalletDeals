@@ -211,6 +211,16 @@ export async function getPalletsByDiscount(minPct: number): Promise<Pallet[]> {
   return (await allPallets()).filter((p) => p.discountPct >= minPct).sort((a, b) => b.discountPct - a.discountPct);
 }
 
+/** Multi-unit lots — priced by the piece (e.g. 110 pairs, 2,000 pieces). */
+export async function getLots(): Promise<Pallet[]> {
+  return (await allPallets()).filter((p) => p.units > 1);
+}
+
+/** Full-truckload listings (matched by title). Truckloads are mostly quote-based. */
+export async function getTruckloads(): Promise<Pallet[]> {
+  return (await allPallets()).filter((p) => /truck\s?loads?/i.test(p.title));
+}
+
 /** Deal tiers: from Supabase when configured (editable thresholds), else static. */
 export const getDealTiers = cache(async (): Promise<DealTier[]> => {
   const sb = getPublicClient();

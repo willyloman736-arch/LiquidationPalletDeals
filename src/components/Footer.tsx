@@ -13,6 +13,7 @@ const infoLinks = [
   { href: "/terms", label: "Terms & Conditions" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/faq", label: "FAQ" },
+  { href: "/how-to-buy", label: "How to Buy" },
 ];
 
 const paymentMethods = ["Wire Transfer", "Apple Pay", "Chime", "Zelle"];
@@ -79,6 +80,15 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h2 className="text-sm font-semibold text-ink-900">Shop</h2>
             <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <Link href="/pallets" className="text-ink-700 hover:text-brand-700">All Pallets</Link>
+              </li>
+              <li>
+                <Link href="/lots" className="text-ink-700 hover:text-brand-700">Lots</Link>
+              </li>
+              <li>
+                <Link href="/truckloads" className="text-ink-700 hover:text-brand-700">Truckloads</Link>
+              </li>
               {categories.map((c) => (
                 <li key={c.slug}>
                   <Link href={`/${c.slug}`} className="text-ink-700 hover:text-brand-700">

@@ -7,7 +7,14 @@ import { Logo } from "./Logo";
 import { Icon } from "./Icon";
 import { useCart } from "@/components/cart/CartProvider";
 
-const utilityLinks = [{ href: "/deals", label: "All Deals" }];
+const primaryNav = [
+  { href: "/lots", label: "Lots" },
+  { href: "/pallets", label: "Pallets" },
+  { href: "/truckloads", label: "Truckloads" },
+  { href: "/how-to-buy", label: "How to Buy" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/deals", label: "Deals" },
+];
 
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
@@ -87,64 +94,66 @@ export function Header() {
       <nav className="hidden border-t border-ink-100 lg:block" aria-label="Primary">
         <div className="container">
           <ul className="flex items-center gap-1">
-            {utilityLinks.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            {categories
-              .filter((c) => c.slug !== "mixed-pallets")
-              .map((c) => (
-                <li
-                  key={c.slug}
-                  className="relative"
-                  onMouseEnter={() => setOpen(c.slug)}
-                  onMouseLeave={() => setOpen(null)}
-                >
-                  <Link
-                    href={`/${c.slug}`}
-                    className="inline-flex items-center gap-1 px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
-                  >
-                    {c.name}
-                    {c.subcategories.length > 0 && (
-                      <Icon name="chevronDown" className="h-4 w-4 text-ink-500" />
-                    )}
-                  </Link>
-                  {open === c.slug && c.subcategories.length > 0 && (
-                    <div className="absolute left-0 top-full z-50 w-64 animate-fade-in pt-2">
-                      <div className="rounded-2xl bg-white p-3 shadow-card ring-1 ring-ink-100">
-                        <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-wider text-ink-500">
-                          {c.name}
-                        </p>
-                        <ul className="space-y-0.5">
-                          {c.subcategories.map((s) => (
-                            <li key={s.slug}>
-                              <Link
-                                href={s.slug === "all" ? `/${c.slug}` : `/${c.slug}#${s.slug}`}
-                                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-ink-800 hover:bg-ink-50 hover:text-brand-700"
-                              >
-                                {s.name}
-                                <Icon name="chevronRight" className="h-4 w-4 text-ink-400" />
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </li>
-              ))}
             <li>
-              <Link
-                href="/mixed-pallets"
-                className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700"
-              >
-                Mixed Pallets
+              <Link href="/lots" className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                Lots
+              </Link>
+            </li>
+            <li className="relative" onMouseEnter={() => setOpen("pallets")} onMouseLeave={() => setOpen(null)}>
+              <Link href="/pallets" className="inline-flex items-center gap-1 px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                Pallets
+                <Icon name="chevronDown" className="h-4 w-4 text-ink-500" />
+              </Link>
+              {open === "pallets" && (
+                <div className="absolute left-0 top-full z-50 w-64 animate-fade-in pt-2">
+                  <div className="rounded-2xl bg-white p-3 shadow-card ring-1 ring-ink-100">
+                    <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-wider text-ink-500">
+                      Shop by category
+                    </p>
+                    <ul className="space-y-0.5">
+                      {categories.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            href={`/${c.slug}`}
+                            className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-ink-800 hover:bg-ink-50 hover:text-brand-700"
+                          >
+                            {c.name}
+                            <Icon name="chevronRight" className="h-4 w-4 text-ink-400" />
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link
+                          href="/pallets"
+                          className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-brand-700 hover:bg-ink-50"
+                        >
+                          Shop all pallets
+                          <Icon name="arrowRight" className="h-4 w-4" />
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/truckloads" className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                Truckloads
+              </Link>
+            </li>
+            <li>
+              <Link href="/how-to-buy" className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                How to Buy
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq" className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link href="/deals" className="inline-flex items-center px-3 py-3 text-sm font-semibold text-ink-700 hover:text-brand-700">
+                Deals
               </Link>
             </li>
           </ul>
@@ -164,7 +173,7 @@ export function Header() {
               />
             </label>
             <ul className="space-y-1">
-              {utilityLinks.map((l) => (
+              {primaryNav.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
@@ -175,28 +184,20 @@ export function Header() {
                   </Link>
                 </li>
               ))}
-              {categories
-                .filter((c) => c.slug !== "mixed-pallets")
-                .map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      href={`/${c.slug}`}
-                      className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink-800 hover:bg-ink-50"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {c.name}
-                    </Link>
-                  </li>
-                ))}
-              <li>
-                <Link
-                  href="/mixed-pallets"
-                  className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-ink-800 hover:bg-ink-50"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Mixed Pallets
-                </Link>
+              <li className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-ink-500">
+                Shop by category
               </li>
+              {categories.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/${c.slug}`}
+                    className="block rounded-lg px-3 py-2.5 text-sm text-ink-700 hover:bg-ink-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
