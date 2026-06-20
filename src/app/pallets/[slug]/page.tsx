@@ -14,6 +14,7 @@ import { site } from "@/lib/site";
 import { PageHeader } from "@/components/PageHeader";
 import { PalletGrid } from "@/components/PalletGrid";
 import { Icon } from "@/components/Icon";
+import { BuyBox } from "@/components/BuyBox";
 
 export async function generateStaticParams() {
   return (await allPallets()).map((p) => ({ slug: p.slug }));
@@ -200,21 +201,7 @@ export default async function PalletPage({
                   <Stat label="Ships from" value={pallet.shipsFrom} />
                 </dl>
 
-                <div className="mt-6 flex flex-col gap-2">
-                  {pallet.availability === "out-of-stock" ? (
-                    <button type="button" disabled className="btn-primary justify-center">
-                      Out of stock
-                    </button>
-                  ) : (
-                    <button type="button" className="btn-primary justify-center">
-                      Add to cart
-                      <Icon name="cart" className="h-4 w-4" />
-                    </button>
-                  )}
-                  <Link href="/contact" className="btn-secondary justify-center">
-                    Request more info
-                  </Link>
-                </div>
+                <BuyBox priceUsd={pallet.priceUsd} soldOut={pallet.availability === "out-of-stock"} />
 
                 <div className="mt-6 grid grid-cols-3 gap-3 border-t border-ink-100 pt-5 text-center text-xs text-ink-600">
                   <div className="flex flex-col items-center gap-1">

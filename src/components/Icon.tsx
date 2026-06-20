@@ -125,6 +125,8 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M12 8h.01M11 12h1v5h1" />
     </>
   ),
+  plus: <path d="M12 5v14M5 12h14" />,
+  minus: <path d="M5 12h14" />,
 };
 
 export function Icon({ name, className = "h-5 w-5", strokeWidth = 1.75 }: IconProps) {
