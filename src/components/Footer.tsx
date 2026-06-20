@@ -42,6 +42,12 @@ export function Footer() {
                   {site.email}
                 </a>
               </p>
+              <p className="flex items-center gap-2">
+                <Icon name="phone" className="h-4 w-4 shrink-0 text-brand-700" />
+                <a href={`tel:+${site.whatsappNumber}`} className="hover:text-brand-700">
+                  {site.phone}
+                </a>
+              </p>
             </address>
             <div className="mt-6 flex items-center gap-4">
               <div className="flex items-center gap-3">

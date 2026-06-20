@@ -37,7 +37,7 @@ export default function CheckoutPage() {
           </span>
           <h1 className="mt-4 text-2xl font-extrabold tracking-tight text-ink-900">Your order is ready to send</h1>
           <p className="mt-2 text-ink-600">
-            We opened WhatsApp with your full order pre-filled to {site.orderPhoneDisplay} — just press send. We&rsquo;ll
+            We opened WhatsApp with your full order pre-filled to {site.phone} — just press send. We&rsquo;ll
             reply with a freight quote and payment instructions for your chosen method.
           </p>
           <div className="mt-6 flex flex-col items-center gap-3">
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                 Send order on WhatsApp <Icon name="arrowRight" className="h-4 w-4" />
               </button>
               <p className="mt-3 text-center text-xs text-ink-500">
-                Opens WhatsApp to {site.orderPhoneDisplay} with your full order pre-filled. No card is charged.
+                Opens WhatsApp to {site.phone} with your full order pre-filled. No card is charged.
               </p>
             </div>
           </aside>

@@ -40,6 +40,15 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
+                <Icon name="phone" className="mt-0.5 h-5 w-5 text-brand-700" />
+                <div>
+                  <p className="font-semibold text-ink-900">Call or text us</p>
+                  <a href={`tel:+${site.whatsappNumber}`} className="link font-medium">
+                    {site.phone}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
                 <Icon name="clock" className="mt-0.5 h-5 w-5 text-brand-700" />
                 <div>
                   <p className="font-semibold text-ink-900">Business hours</p>

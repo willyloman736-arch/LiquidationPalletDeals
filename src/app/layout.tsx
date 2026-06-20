@@ -68,6 +68,7 @@ const orgJsonLd = {
     {
       "@type": "ContactPoint",
       contactType: "customer support",
+      telephone: `+${site.whatsappNumber}`,
       email: site.email,
       areaServed: "US",
       availableLanguage: "English",
