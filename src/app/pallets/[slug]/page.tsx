@@ -89,6 +89,7 @@ export default async function PalletPage({
         merchantReturnDays: 30,
         returnMethod: "https://schema.org/ReturnByMail",
         returnFees: "https://schema.org/ReturnShippingFees",
+        restockingFee: { "@type": "MonetaryAmount", value: 0, currency: "USD" },
       },
       shippingDetails: {
         "@type": "OfferShippingDetails",
