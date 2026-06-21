@@ -10,7 +10,7 @@ export const revalidate = 120; // ISR — reflect DB changes without a redeploy
 export const metadata: Metadata = {
   title: "Shop all pallets",
   description:
-    "Every available liquidation pallet — famous & specialty-store brands, sold by the pallet, 100% inspected. New lots listed daily.",
+    "Every available liquidation pallet — famous & specialty-store brands, sold by the pallet, condition-graded. New lots listed daily.",
 };
 
 export default async function PalletsPage() {

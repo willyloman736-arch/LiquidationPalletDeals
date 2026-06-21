@@ -22,7 +22,7 @@ export function Hero() {
             className="anim-rise mt-5 max-w-xl text-balance text-lg text-white/85"
             style={{ animationDelay: "120ms" }}
           >
-            Bulk offerings of the best labels — 100%-inspected liquidation pallets and truckloads from
+            Bulk offerings of the best labels — condition-graded liquidation pallets and truckloads from
             famous and specialty stores. New lots listed daily.
           </p>
           <div
@@ -46,7 +46,7 @@ export function Hero() {
           >
             <div>
               <dt className="text-xs uppercase tracking-wider text-white/60">Inspection</dt>
-              <dd className="mt-1 text-2xl font-bold">100%</dd>
+              <dd className="mt-1 text-2xl font-bold">Graded</dd>
             </div>
             <div>
               <dt className="text-xs uppercase tracking-wider text-white/60">Off MSRP</dt>

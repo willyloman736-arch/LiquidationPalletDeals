@@ -3,7 +3,7 @@ export const site = {
   legalName: "Liquidation Pallet Deals",
   tagline: "Wholesale liquidation pallets — 82% off MSRP or more",
   description:
-    "Shop 100%-inspected liquidation pallets and truckloads from famous and specialty-store brands. New lots listed daily across apparel, electronics, furniture, general merchandise, health & beauty, and houseware — fully manifested, partially manifested, or unmanifested.",
+    "Shop condition-graded liquidation pallets and truckloads from famous and specialty-store brands. New lots listed daily across apparel, electronics, furniture, general merchandise, health & beauty, and houseware — fully manifested, partially manifested, or unmanifested.",
   url: "https://liquidationspalletdeals.com",
   // Primary inquiry inbox — all customer questions route here. Phone number to be added soon.
   email: "info@liquidationspalletdeals.com",

@@ -52,23 +52,54 @@ export default async function PalletPage({
     .filter((p) => p.categorySlug === pallet.categorySlug && p.slug !== pallet.slug)
     .slice(0, 3);
 
+  // Schema.org condition mapping — Google requires NewCondition / UsedCondition /
+  // RefurbishedCondition / DamagedCondition.
+  const conditionUrl =
+    pallet.condition === "new" || pallet.condition === "mos" || pallet.condition === "first-quality"
+      ? "https://schema.org/NewCondition"
+      : "https://schema.org/UsedCondition";
+  const absoluteUrl = (u: string) => (/^https?:\/\//i.test(u) ? u : `${site.url}${u}`);
+  const priceValidUntil = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: pallet.title,
     sku: pallet.sku ?? undefined,
     category: pallet.categoryName,
-    image: pallet.images.map((i) => `${site.url}${i}`),
-    description: pallet.blurb,
+    image: pallet.images.map(absoluteUrl),
+    description: pallet.summary || pallet.blurb,
+    brand: { "@type": "Brand", name: site.legalName },
+    itemCondition: conditionUrl,
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
       price: pallet.priceUsd.toFixed(2),
+      priceValidUntil,
+      itemCondition: conditionUrl,
       availability:
         pallet.availability === "in-stock"
           ? "https://schema.org/InStock"
           : "https://schema.org/OutOfStock",
       seller: { "@type": "Organization", name: site.legalName },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "US",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/ReturnShippingFees",
+      },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "US" },
+        shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "USD" },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 5, unitCode: "DAY" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 7, unitCode: "DAY" },
+        },
+      },
     },
   };
 
@@ -217,7 +248,7 @@ export default async function PalletPage({
                 <div className="mt-6 grid grid-cols-3 gap-3 border-t border-ink-100 pt-5 text-center text-xs text-ink-600">
                   <div className="flex flex-col items-center gap-1">
                     <Icon name="shield" className="h-4 w-4 text-brand-700" />
-                    100% inspected
+                    Condition-graded
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <Icon name="truck" className="h-4 w-4 text-brand-700" />
@@ -225,7 +256,7 @@ export default async function PalletPage({
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <Icon name="info" className="h-4 w-4 text-brand-700" />
-                    All sales final
+                    30-day claim window
                   </div>
                 </div>
               </div>

@@ -16,7 +16,7 @@ const FEATURED_SKUS = ["G51235", "ARP201", "G51322", "G51326", "G58138", "G51490
 const BANNERS = [
   {
     eyebrow: "Sold by the pallet",
-    title: "Famous-brand pallets, 100% inspected",
+    title: "Famous-brand pallets, condition-graded",
     body: "Apparel, electronics, beauty, houseware and more — condition-graded before they ship from Jacksonville, FL.",
     href: "/pallets",
     cta: "Shop all pallets",
@@ -41,7 +41,7 @@ const BANNERS = [
 ];
 
 const SHOP_TYPES = [
-  { href: "/pallets", title: "Pallets", body: "Sold by the pallet, 100% inspected.", image: "/images/marketing/hero-warehouse.webp", icon: "boxes" },
+  { href: "/pallets", title: "Pallets", body: "Sold by the pallet, condition-graded.", image: "/images/marketing/hero-warehouse.webp", icon: "boxes" },
   { href: "/lots", title: "Lots", body: "Bulk lots priced by the piece.", image: "/images/marketing/pallets.webp", icon: "shuffle" },
   { href: "/truckloads", title: "Truckloads", body: "FTL by the trailer — by quote.", image: "/images/marketing/aerial-yard.webp", icon: "truck" },
 ];

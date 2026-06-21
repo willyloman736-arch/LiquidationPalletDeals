@@ -23,7 +23,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Are there any merchandise guarantees or warrantees on Liquidation Pallet Deals offerings?",
-    answer: `Merchandise sold by Liquidation Pallet Deals is not covered under any guarantees or warrantees by the manufacturer, retailer, or reseller. You are purchasing goods "as is, where is." All sales are final.`,
+    answer: `Merchandise sold by Liquidation Pallet Deals is not covered under any manufacturer, retailer, or reseller guarantee or warranty — you're purchasing goods "as is, where is." We do honor a 30-day claim window for documented shortages, damage in transit, or pallets substantively misrepresented in the Listing. To file a claim, email info@liquidationspalletdeals.com within 30 days of delivery with your order number and photo or video evidence; resolution is at our discretion and may be a replacement, partial refund, or store credit. Outside that window, all sales are final.`,
   },
   {
     question: "Can offerings be inspected before I purchase?",

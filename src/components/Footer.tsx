@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { categories } from "@/data/categories";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
@@ -50,30 +49,21 @@ export function Footer() {
                 </a>
               </p>
             </address>
-            <div className="mt-6 flex items-center gap-4">
-              <div className="flex items-center gap-3">
-                <a
-                  href={site.social.facebook}
-                  aria-label="Liquidation Pallet Deals on Facebook"
-                  className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
-                >
-                  <Icon name="facebook" />
-                </a>
-                <a
-                  href={site.social.tiktok}
-                  aria-label="Liquidation Pallet Deals on TikTok"
-                  className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
-                >
-                  <Icon name="tiktok" />
-                </a>
-              </div>
-              <Image
-                src="/images/marketing/bbb-accredited.webp"
-                alt="BBB Accredited Business"
-                width={60}
-                height={80}
-                className="h-12 w-auto rounded-md bg-white p-1 ring-1 ring-ink-200"
-              />
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={site.social.facebook}
+                aria-label="Liquidation Pallet Deals on Facebook"
+                className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
+              >
+                <Icon name="facebook" />
+              </a>
+              <a
+                href={site.social.tiktok}
+                aria-label="Liquidation Pallet Deals on TikTok"
+                className="grid h-9 w-9 place-items-center rounded-lg bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-brand-600 hover:text-white"
+              >
+                <Icon name="tiktok" />
+              </a>
             </div>
           </div>
 

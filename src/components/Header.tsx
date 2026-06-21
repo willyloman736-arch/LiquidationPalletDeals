@@ -34,12 +34,12 @@ export function Header() {
         elevated ? "header-elevated" : ""
       }`}
     >
-      {/* Announcement bar — free shipping promo */}
+      {/* Announcement bar — accurate freight promise (no fake free-shipping offer) */}
       <div className="bg-brand-700 text-white">
         <div className="container flex h-9 items-center justify-center gap-2 overflow-hidden text-center text-xs font-medium">
           <Icon name="truck" className="h-4 w-4 shrink-0 text-accent-300" />
           <span>
-            Free shipping on orders over <span className="font-bold">$650</span>
+            <span className="font-bold">Free dock pickup</span> in Jacksonville, FL · Live LTL freight nationwide
           </span>
         </div>
       </div>
