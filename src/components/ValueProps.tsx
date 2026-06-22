@@ -10,7 +10,7 @@ const items = [
   {
     icon: "shield",
     title: "100% inspection",
-    body: "NEJ performs a quality-control inspection on all goods we offer, so you maximize recovery value on every lot.",
+    body: "Every lot is condition-graded by our team in Jacksonville before it ships, so what you order matches what arrives.",
   },
   {
     icon: "shuffle",

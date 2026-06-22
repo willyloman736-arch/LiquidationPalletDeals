@@ -7,6 +7,8 @@ import { PalletGrid } from "@/components/PalletGrid";
 import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/Icon";
 import { allPallets, getPalletsByCategory, type PalletWithCategoryName } from "@/data/pallets";
+import { featuredReviews } from "@/data/reviews";
+import { ReviewCard } from "@/components/ReviewCard";
 import { site } from "@/lib/site";
 
 export const revalidate = 120; // ISR — reflect DB changes without a redeploy
@@ -132,6 +134,30 @@ export default async function HomePage() {
       {dives.map((d, i) => (
         <DeepDive key={d.slug} dive={d} reverse={i % 2 === 1} />
       ))}
+
+      {/* Customer reviews */}
+      <section className="border-b border-ink-100 bg-ink-50 py-14">
+        <div className="container">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow">Customer reviews</p>
+                <h2 className="mt-2 text-balance text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+                  Resellers who&rsquo;ve bought from us.
+                </h2>
+              </div>
+              <Link href="/reviews" className="link text-sm font-semibold">
+                Read all reviews <Icon name="arrowRight" className="ml-1 inline h-3.5 w-3.5" />
+              </Link>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredReviews.map((r) => (
+                <ReviewCard key={r.name + r.title} review={r} />
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Quote CTA */}
       <section className="relative isolate overflow-hidden bg-ink-900 text-white">

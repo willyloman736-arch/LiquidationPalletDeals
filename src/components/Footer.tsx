@@ -8,11 +8,17 @@ import { Newsletter } from "./Newsletter";
 const infoLinks = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/how-to-buy", label: "How to Buy" },
+  { href: "/reviews", label: "Reviews" },
+];
+
+const policyLinks = [
+  { href: "/refund-return", label: "Refund & Return" },
+  { href: "/warranty", label: "Warranty" },
   { href: "/shipping", label: "Shipping" },
   { href: "/terms", label: "Terms & Conditions" },
   { href: "/privacy", label: "Privacy Policy" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/how-to-buy", label: "How to Buy" },
 ];
 
 const paymentMethods = ["Wire Transfer", "Apple Pay", "Chime", "Zelle"];
@@ -67,7 +73,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <h2 className="text-sm font-semibold text-ink-900">Shop</h2>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
@@ -90,7 +96,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h2 className="text-sm font-semibold text-ink-900">Additional Pages</h2>
+            <h2 className="text-sm font-semibold text-ink-900">Company</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {infoLinks.map((l) => (
                 <li key={l.href}>
@@ -102,10 +108,23 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h2 className="text-sm font-semibold text-ink-900">Subscribe to our email list!</h2>
+          <div className="lg:col-span-2">
+            <h2 className="text-sm font-semibold text-ink-900">Policies</h2>
+            <ul className="mt-4 space-y-2 text-sm">
+              {policyLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-ink-700 hover:text-brand-700">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h2 className="text-sm font-semibold text-ink-900">Subscribe</h2>
             <p className="mt-4 text-sm text-ink-600">
-              Get alerts on new pallets and deeper discounts. New lots listed daily.
+              New lots listed daily — get alerts and deeper discounts.
             </p>
             <Newsletter compact />
           </div>

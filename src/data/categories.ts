@@ -20,7 +20,7 @@ export const categories: Category[] = [
     slug: "apparel",
     shortDescription: "Brand-name clothing, footwear, and accessories by the pallet.",
     longDescription:
-      "Famous and specialty-store branded apparel sourced through 33 years of B2B reverse-logistics relationships. Mixed sizes and styles across men, women, and kids, with clear inventory-grade classifications on every lot.",
+      "Famous and specialty-store branded apparel sourced through established B2B reverse-logistics channels. Mixed sizes and styles across men, women, and kids, with clear inventory-grade classifications on every lot.",
     icon: "shirt",
     image: "/images/categories/apparel.webp",
     highlights: ["Mixed sizes and styles", "First Quality & shelf-pull grades", "Pallets and truckloads"],
@@ -38,7 +38,7 @@ export const categories: Category[] = [
       "Music & audio, phone cases, chargers, cables, and tech accessories. High online resale demand with predictable cost-per-unit economics for marketplace sellers.",
     icon: "headphones",
     image: "/images/categories/electronics.webp",
-    highlights: ["Strong online resale demand", "Low cost per unit", "Marked-out-of-stock & shelf pulls"],
+    highlights: ["Strong online resale demand", "Low cost per unit", "Past Season Transfers & shelf pulls"],
     subcategories: [
       { name: "Music & Audio", slug: "music-audio" },
       { name: "Tech Accessories", slug: "tech-accessories" },

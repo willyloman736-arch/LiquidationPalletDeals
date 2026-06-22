@@ -1,0 +1,74 @@
+{
+  "title": "Warranty Policy",
+  "intro": "Liquidation Pallet Deals backs every pallet and truckload with a 30-day functional guarantee. The intent is simple: the merchandise you receive should perform consistent with what the Listing described, and we stand behind that for 30 days from delivery. This is a bounded, reseller-grade warranty — not a manufacturer warranty — and the terms below define exactly what it covers and how to use it.",
+  "sections": [
+    {
+      "heading": null,
+      "paragraphs": [
+        "Every order shipped from our Jacksonville warehouse is covered by a 30-day functional guarantee from the date of delivery. If individual units inside a lot fail to function as the Listing described, you have a defined window and a defined process to make it right. Outside of that window, and outside of the conditions below, merchandise is sold as is, where is."
+      ],
+      "list": []
+    },
+    {
+      "heading": "What the 30-Day Functional Guarantee Covers",
+      "paragraphs": [
+        "Coverage applies to functional defects on individual units within a lot — items that should power on, operate, or perform as their category implies but do not. The guarantee is designed to protect resellers from materially non-functional inventory when the Listing represented the lot as working or tested.",
+        "Coverage is measured at the lot level. A claim must be material to the value of the lot as a whole, not based on a single unit in a large pallet."
+      ],
+      "list": [
+        "Electronics that fail to power on or operate as described in a lot listed as working or tested",
+        "Appliances and powered goods with confirmed functional defects on arrival",
+        "Sealed or new-condition units that are non-functional out of the box",
+        "Defects affecting a meaningful share of the units in the lot relative to the Listing"
+      ]
+    },
+    {
+      "heading": "What Is Not Covered",
+      "paragraphs": [
+        "Liquidation merchandise carries inherent variability, and the guarantee is not a substitute for reading the Listing. Anything that was disclosed, anything cosmetic, and anything that falls under a manufacturer or retailer process is outside the scope of this policy."
+      ],
+      "list": [
+        "Buyer's remorse, change of mind, or shifts in resale market pricing",
+        "Cosmetic blemishes, shelf-pull wear, scuffs, or condition characteristics that were disclosed in the Listing",
+        "Customer-return or shelf-pull condition on lots that were listed as such",
+        "Manufacturer recalls, which must be handled directly with the brand",
+        "Used, opened, or non-working items inside mystery, unmanifested, or return-flow pallets where that condition was part of the Listing"
+      ]
+    },
+    {
+      "heading": "How to File a Warranty Claim",
+      "paragraphs": [
+        "All warranty claims must be submitted within 30 days of delivery. Send your claim to info@liquidationspalletdeals.com with enough detail for our team to evaluate it without follow-up. Incomplete claims will be returned for more information, but the 30-day window does not pause while a claim is being completed.",
+        "Photo and video evidence is required. For powered items, short video of the unit failing to operate is the fastest path to resolution."
+      ],
+      "list": [
+        "Order number and delivery date",
+        "Specific SKU or item description from the manifest or Listing",
+        "Unit count affected and total unit count in the lot",
+        "Clear photos of the affected units and, for electronics, a short video showing the defect",
+        "Any serial numbers or labels visible on the affected units"
+      ]
+    },
+    {
+      "heading": "Resolution and Remedy",
+      "paragraphs": [
+        "Approved claims are resolved at the discretion of Liquidation Pallet Deals through one of three remedies: replacement units when comparable stock is available, a partial refund proportional to the defect's impact on the lot, or store credit toward a future order. There is no restocking fee on approved warranty claims.",
+        "The remedy issued is the sole and exclusive remedy under this warranty. We do not cover consequential damages, lost resale profit, downstream customer refunds, or shipping costs beyond the original delivery."
+      ],
+      "list": [
+        "Replacement units of the same or comparable SKU, subject to availability",
+        "Partial refund proportional to the defective share of the lot",
+        "Store credit toward a future pallet or truckload order",
+        "No restocking fee on any approved warranty claim"
+      ]
+    },
+    {
+      "heading": "Relationship to the Returns Policy and General Disclaimer",
+      "paragraphs": [
+        "This warranty covers functional defects on units inside a lot. Our separate Returns Policy covers shortages, damage in transit, and pallets that were substantively misrepresented in the Listing. Both policies share the same 30-day claim window from delivery, and a single situation will be evaluated under whichever policy applies — you do not need to choose in advance.",
+        "No manufacturer warranty passes through on liquidation merchandise. The 30-day functional guarantee is the sole warranty offered by Liquidation Pallet Deals. Outside of this 30-day window, and outside of the conditions above, all inventory is sold as is, where is, with no further warranty expressed or implied."
+      ],
+      "list": []
+    }
+  ]
+}

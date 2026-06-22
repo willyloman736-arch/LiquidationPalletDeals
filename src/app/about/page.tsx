@@ -4,27 +4,25 @@ import Image from "next/image";
 import { PageHeader } from "@/components/PageHeader";
 import { Icon } from "@/components/Icon";
 import { CTA } from "@/components/CTA";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Liquidation Pallet Deals is backed by NEJ, Inc. and 33 years of B2B reverse-logistics experience. We inspect and grade every lot before it ships from Jacksonville, Florida.",
+    "Liquidation Pallet Deals is a B2B reseller of inspected, condition-graded liquidation pallets and truckloads, shipping daily from Jacksonville, Florida.",
 };
 
 const stats = [
-  { label: "Reverse-logistics experience", value: "33 yrs" },
-  { label: "NEJ, Inc. founded", value: "1990" },
-  { label: "Platform relaunched", value: "2024" },
-  { label: "Inspection coverage", value: "100%" },
+  { label: "Hundreds of lots in stock", value: "289+" },
+  { label: "Departments covered", value: "7" },
+  { label: "Claim window", value: "30 days" },
+  { label: "Ships from", value: "Jacksonville, FL" },
 ];
 
 const story = [
-  "Liquidation Pallet Deals, a B2C e-commerce strategy, was originally established in 2011 as a division of NEJ, Inc. NEJ was founded in 1990 by Ed Mascolo, who became a national leader in purchasing excess inventories of end-of-season branded and specialty stores' apparel, footwear, accessories, and light home goods for resale to global off-price retailers. The synergies were in place for NEJ to grow a B2C platform, but the e-commerce model became a distraction to the core business.",
-  "Liquidation Pallet Deals transformed into a B2B business to service the ground swell of eBay and Amazon Marketplace resellers. Liquidation Pallet Deals was positioned to capitalize on the vast infrastructure NEJ built over its 20 years. Again, the division became an interference to the core business model and went dormant.",
-  "A new team was developed in 2024 to create a strong base combined with the muscle of NEJ's 33 years of infrastructure to restart the B2B platform. The straight-talk style of this team aligned well to reintroduce Liquidation Pallet Deals.",
-  "Liquidation Pallet Deals provides bulk inventory offerings of famous and specialty store branded clothing, accessories, general merchandise, light home goods, and more. Our prices and quality of goods will “wow!” you. Inventory offerings are typically at least 82% off MSRP. Pricing is listed by lot. Lots may be fully manifested, partially manifested, or unmanifested. Offerings are by the pallet as well as by the truckload. NEJ performs a quality control inspection on all goods offered. New inventories are received daily, providing the variety you need to be profitable.",
-  "Finding the right liquidation partner is crucial in growing a successful business. Liquidation Pallet Deals is your trouble-free pallet/bulk goods provider that will make a difference in your business!",
+  "Liquidation Pallet Deals is a B2B reseller built for resellers. We source pallets, lots, and truckloads of famous and specialty-store brand merchandise from established liquidation channels, condition-grade every lot at our Jacksonville facility, and list new inventory daily.",
+  "Our customers are bin store operators, marketplace sellers, swap meet vendors, FBA preppers, and independent wholesalers. The model is simple: transparent per-unit pricing, honest condition grading, live LTL freight, and free dock pickup for buyers who want to handle their own logistics.",
+  "We don't try to be all things to everyone. We're a wholesale operation — by the pallet or the truckload — and we back every shipment with a 30-day claim window for shortages, transit damage, or pallets substantively misrepresented in the Listing. Outside of that, merchandise is sold as is, where is, the way the industry has always worked.",
+  "New lots come in every week across apparel, electronics, furniture, general merchandise, health & beauty, houseware, and mixed pallets. If you're a serious reseller looking for a straight-talk supplier, this is the right place to start.",
 ];
 
 export default function AboutPage() {
@@ -32,8 +30,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="33 years of B2B reverse-logistics experience."
-        description="Liquidation Pallet Deals is backed by NEJ, Inc. — inspecting, grading, and shipping famous and specialty-store brand liquidation from Jacksonville, Florida."
+        title="Liquidation done straight."
+        description="A B2B reseller of inspected, condition-graded liquidation pallets and truckloads — sourced, graded, and shipped from Jacksonville, Florida."
         breadcrumbs={[
           { href: "/", label: "Home" },
           { href: "/about", label: "About" },
@@ -43,18 +41,11 @@ export default function AboutPage() {
       <section className="border-b border-ink-100 bg-white py-14">
         <div className="container grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">Our story</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">Who we are</h2>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-ink-700">
               {story.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
-              <p>
-                If you are looking to purchase individual items in a retail setting, learn more at{" "}
-                <a href={site.retailSite} className="link font-semibold">
-                  Retail101.com
-                </a>
-                .
-              </p>
             </div>
           </div>
 
@@ -62,7 +53,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-ink-100">
               <Image
                 src="/images/marketing/facility.webp"
-                alt="NEJ / Liquidation Pallet Deals warehouse exterior in Jacksonville, Florida"
+                alt="Liquidation Pallet Deals warehouse exterior in Jacksonville, Florida"
                 fill
                 sizes="(min-width:1024px) 40vw, 100vw"
                 className="object-cover"
@@ -71,7 +62,7 @@ export default function AboutPage() {
             <dl className="mt-6 grid grid-cols-2 gap-3">
               {stats.map((s) => (
                 <div key={s.label} className="card p-4">
-                  <dd className="text-2xl font-extrabold text-ink-900">{s.value}</dd>
+                  <dd className="text-xl font-extrabold text-ink-900">{s.value}</dd>
                   <dt className="mt-1 text-xs uppercase tracking-wider text-ink-500">{s.label}</dt>
                 </div>
               ))}
