@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/components/cart/CartProvider";
 import { Icon } from "@/components/Icon";
+import { MIN_ORDER_USD, minOrderShortfall } from "@/lib/order";
 
 const usd = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -102,15 +103,45 @@ export default function CartPage() {
                   <span className="font-bold text-ink-900">Total</span>
                   <span className="text-xl font-extrabold text-brand-700">{usd(subtotal)}</span>
                 </div>
-                <Link href="/checkout" className="btn-primary mt-6 w-full justify-center">
-                  Proceed to checkout <Icon name="arrowRight" className="h-4 w-4" />
-                </Link>
-                <Link href="/deals" className="mt-2 block text-center text-sm font-semibold text-brand-700 hover:underline">
-                  Continue shopping
-                </Link>
-                <p className="mt-4 text-xs text-ink-500">
-                  Subtotal excludes freight. You&rsquo;ll send your order on the next step and we&rsquo;ll reply with a shipping quote and payment instructions.
-                </p>
+                {(() => {
+                  const short = minOrderShortfall(subtotal);
+                  const blocked = short > 0;
+                  return (
+                    <>
+                      {blocked && (
+                        <div className="mt-6 rounded-xl bg-amber-50 px-4 py-3 ring-1 ring-amber-200">
+                          <p className="text-sm font-semibold text-amber-900">
+                            Add {usd(short)} more to reach the {usd(MIN_ORDER_USD)} order minimum.
+                          </p>
+                          <p className="mt-1 text-xs text-amber-800">
+                            Our LTL freight economics require a {usd(MIN_ORDER_USD)} minimum order.
+                          </p>
+                        </div>
+                      )}
+                      {blocked ? (
+                        <button
+                          type="button"
+                          disabled
+                          aria-disabled="true"
+                          title={`Add ${usd(short)} more to reach the ${usd(MIN_ORDER_USD)} minimum`}
+                          className="btn-primary mt-3 w-full cursor-not-allowed justify-center opacity-50"
+                        >
+                          Proceed to checkout <Icon name="arrowRight" className="h-4 w-4" />
+                        </button>
+                      ) : (
+                        <Link href="/checkout" className="btn-primary mt-6 w-full justify-center">
+                          Proceed to checkout <Icon name="arrowRight" className="h-4 w-4" />
+                        </Link>
+                      )}
+                      <Link href="/deals" className="mt-2 block text-center text-sm font-semibold text-brand-700 hover:underline">
+                        Continue shopping
+                      </Link>
+                      <p className="mt-4 text-xs text-ink-500">
+                        Subtotal excludes freight. {usd(MIN_ORDER_USD)} order minimum applies. You&rsquo;ll send your order on the next step and we&rsquo;ll reply with a shipping quote and payment instructions.
+                      </p>
+                    </>
+                  );
+                })()}
               </div>
             </aside>
           </div>

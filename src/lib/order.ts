@@ -1,5 +1,16 @@
 import { site } from "@/lib/site";
 
+/**
+ * Minimum order subtotal in USD. Freight economics on LTL pallets make orders
+ * under $650 uneconomical, so checkout is gated at the cart and checkout pages.
+ */
+export const MIN_ORDER_USD = 650;
+
+/** Dollar shortfall to reach the minimum (0 once subtotal meets or exceeds it). */
+export function minOrderShortfall(subtotal: number): number {
+  return Math.max(0, MIN_ORDER_USD - subtotal);
+}
+
 export const PAYMENT_METHODS = ["Wire Transfer", "Apple Pay", "Chime", "Zelle"] as const;
 export type PaymentMethod = (typeof PAYMENT_METHODS)[number];
 

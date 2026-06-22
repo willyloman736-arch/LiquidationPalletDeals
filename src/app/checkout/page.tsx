@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
 import { Icon } from "@/components/Icon";
-import { PAYMENT_METHODS, buildOrderText, orderMailto, type CheckoutForm } from "@/lib/order";
+import { PAYMENT_METHODS, buildOrderText, orderMailto, MIN_ORDER_USD, minOrderShortfall, type CheckoutForm } from "@/lib/order";
 import { site } from "@/lib/site";
 
 const usd = (n: number) =>
@@ -29,6 +29,7 @@ export default function CheckoutPage() {
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submitOrder = () => {
+    if (subtotal < MIN_ORDER_USD) return; // defense-in-depth — UI already disables the button
     if (!formEl.current?.reportValidity()) return; // run native validation first
     const text = buildOrderText(
       items.map((i) => ({ title: i.title, sku: i.sku, priceUsd: i.priceUsd, qty: i.qty })),
@@ -205,18 +206,39 @@ export default function CheckoutPage() {
         </form>
 
         {/* Checkout button lives BELOW the order summary block, not inside it */}
-        <div className="mt-10 flex flex-col items-center gap-3 sm:items-end">
-          <button
-            type="button"
-            onClick={submitOrder}
-            className="btn-primary w-full justify-center px-10 py-3 text-base sm:w-auto"
-          >
-            Checkout <Icon name="arrowRight" className="h-4 w-4" />
-          </button>
-          <p className="text-center text-xs text-ink-500 sm:text-right">
-            Emails your order to {site.email}. We reply with a freight quote and payment instructions. No card is charged.
-          </p>
-        </div>
+        {(() => {
+          const short = minOrderShortfall(subtotal);
+          const blocked = short > 0;
+          return (
+            <div className="mt-10 flex flex-col items-stretch gap-3 sm:items-end">
+              {blocked && (
+                <div className="rounded-xl bg-amber-50 px-4 py-3 ring-1 ring-amber-200 sm:max-w-md">
+                  <p className="text-sm font-semibold text-amber-900">
+                    Add {usd(short)} more to reach the {usd(MIN_ORDER_USD)} order minimum.
+                  </p>
+                  <p className="mt-1 text-xs text-amber-800">
+                    Our LTL freight economics require a {usd(MIN_ORDER_USD)} minimum order. <Link href="/cart" className="font-semibold underline">Adjust your cart</Link> to continue.
+                  </p>
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={submitOrder}
+                disabled={blocked}
+                aria-disabled={blocked}
+                title={blocked ? `Add ${usd(short)} more to reach the ${usd(MIN_ORDER_USD)} minimum` : undefined}
+                className={`btn-primary w-full justify-center px-10 py-3 text-base sm:w-auto ${
+                  blocked ? "cursor-not-allowed opacity-50" : ""
+                }`}
+              >
+                Checkout <Icon name="arrowRight" className="h-4 w-4" />
+              </button>
+              <p className="text-center text-xs text-ink-500 sm:text-right">
+                Emails your order to {site.email}. We reply with a freight quote and payment instructions. {usd(MIN_ORDER_USD)} order minimum. No card is charged.
+              </p>
+            </div>
+          );
+        })()}
       </div>
     </section>
   );
