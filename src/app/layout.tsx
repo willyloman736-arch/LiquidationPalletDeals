@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { SiteFrame } from "@/components/SiteFrame";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { TawkChat } from "@/components/TawkChat";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/lib/site";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -119,6 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </SiteFrame>
         </CartProvider>
+        <WhatsAppButton />
         <TawkChat />
       </body>
     </html>
