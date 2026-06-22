@@ -33,7 +33,7 @@ export const manifestLabel: Record<ManifestStatus, string> = {
 
 export const conditionLabel: Record<Condition, string> = {
   new: "New",
-  mos: "Marked Out of Stock",
+  mos: "Past Season Transfers",
   "first-quality": "First Quality",
   "shelf-pull": "Shelf Pull",
   "customer-return": "Customer Return",
@@ -48,7 +48,7 @@ export const manifestDescription: Record<ManifestStatus, string> = {
 
 export const conditionDescription: Record<Condition, string> = {
   new: "Brand-new, retail-ready inventory.",
-  mos: "New, retail-ready inventory marked out of stock from retail stores (Past Season Transfers). Primarily First Quality, with occasional light handling.",
+  mos: "New, retail-ready inventory pulled from retail stores at the end of a season. Primarily First Quality, with occasional light handling.",
   "first-quality": "Retail-ready merchandise free of any defects that has not been in a retail store.",
   "shelf-pull": "Previous inventory never sold to the consumer; new, but can sometimes show light signs of handling.",
   "customer-return": "Merchandise returned by consumers under the retailer's return policy; quality varies.",

@@ -34,8 +34,8 @@ export const faqs: FAQ[] = [
     answer: `Title to merchandise passes from Liquidation Pallet Deals to the customer when the merchandise leaves Liquidation Pallet Deals's docks in Jacksonville, FL. The delivering carrier should be held responsible for any lost, damaged or broken packages. All claims should be directed to the delivering carrier. All Liquidation Pallet Deals packages are properly sealed in good condition cartons. Any orders picked up are the responsibility of the customer. Returns and refunds are not accepted.`,
   },
   {
-    question: "What are Past Season Transfers (PSTs) and Marked Out of Stock (MOS) goods?",
-    answer: `PSTs (also known as Seasonal Shelf Pulls or Marked Out of Stock) are First Quality/new inventory that is marked out of stock from retail stores. Retail stores change their inventory seasonally and previous inventory is removed to make room on the shelves for the new season's items. PSTs are primarily comprised of First Quality items, but occasionally contain slight damage from increased handling.`,
+    question: "What are Past Season Transfers (PSTs)?",
+    answer: `PSTs (also known as Seasonal Shelf Pulls) are First Quality, new inventory pulled from retail stores at the end of a season. Retail stores rotate their inventory seasonally and previous inventory is removed to make room for the new season's items. PSTs are primarily comprised of First Quality items, but occasionally contain slight damage from increased handling.`,
   },
   {
     question: "What is black-lining?",

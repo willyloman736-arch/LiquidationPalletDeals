@@ -23,7 +23,7 @@ export type ProductFormValues = {
 };
 
 const CONDITIONS: [string, string][] = [
-  ["mos", "Marked Out of Stock"],
+  ["mos", "Past Season Transfers"],
   ["first-quality", "First Quality"],
   ["new", "New"],
   ["shelf-pull", "Shelf Pull"],
