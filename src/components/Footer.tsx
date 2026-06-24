@@ -10,7 +10,6 @@ const infoLinks = [
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
   { href: "/how-to-buy", label: "How to Buy" },
-  { href: "/reviews", label: "Reviews" },
 ];
 
 const policyLinks = [
